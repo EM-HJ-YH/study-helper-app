@@ -1,15 +1,19 @@
 package com.hansung.android.studyhelper;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by leeem on 2018-11-17.
+ */
+
+public class MypageActivity extends AppCompatActivity {
+
 
     Button recruitment = (Button) findViewById(R.id.recruitment);
     Button mypage = (Button) findViewById(R.id.mypage);
@@ -21,23 +25,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mypage);
 
         TextView tosignin = (TextView) findViewById(R.id.tosignin);
-        tosignin.setOnClickListener(new MyOnClickListener1());
+        tosignin.setOnClickListener(new MypageActivity.MyOnClickListener1());
 
         TextView tosignup = (TextView) findViewById(R.id.tosignup);
-        tosignup.setOnClickListener(new MyOnClickListener2());
+        tosignup.setOnClickListener(new MypageActivity.MyOnClickListener2());
 
 
-
-
-
-        recruitment.setOnClickListener(new MyOnClickListener3());
-        mypage.setOnClickListener(new MyOnClickListener3());
-        myteam.setOnClickListener(new MyOnClickListener3());
-        teamcalendar.setOnClickListener(new MyOnClickListener3());
-        chatting.setOnClickListener(new MyOnClickListener3());
+        recruitment.setOnClickListener(new MypageActivity.MyOnClickListener3());
+        mypage.setOnClickListener(new MypageActivity.MyOnClickListener3());
+        myteam.setOnClickListener(new MypageActivity.MyOnClickListener3());
+        teamcalendar.setOnClickListener(new MypageActivity.MyOnClickListener3());
+        chatting.setOnClickListener(new MypageActivity.MyOnClickListener3());
 
 
     }
@@ -84,6 +85,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
 }
