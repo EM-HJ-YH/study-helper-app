@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#3F51B5"
-            android:text="My      Page"
+            android:text="My Page"
             android:textSize="10dp" />
 
         <Button
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            android:text="My      Team"
+            android:text="My Team"
             android:textSize="10dp" />
 
         <Button
@@ -48,7 +48,7 @@
             android:layout_weight="1"
             android:background="#3F51B5"
             android:text="Team Calendar"
-            android:textSize="10dp" />
+            android:textSize="9dp" />
 
         <Button
             android:id="@+id/chatting"

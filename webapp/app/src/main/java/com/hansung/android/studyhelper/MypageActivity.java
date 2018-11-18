@@ -27,12 +27,6 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-        TextView tosignin = (TextView) findViewById(R.id.tosignin);
-        tosignin.setOnClickListener(new MypageActivity.MyOnClickListener1());
-
-        TextView tosignup = (TextView) findViewById(R.id.tosignup);
-        tosignup.setOnClickListener(new MypageActivity.MyOnClickListener2());
-
 
         recruitment.setOnClickListener(new MypageActivity.MyOnClickListener3());
         mypage.setOnClickListener(new MypageActivity.MyOnClickListener3());
@@ -43,25 +37,6 @@ public class MypageActivity extends AppCompatActivity {
 
     }
 
-    private class MyOnClickListener1 implements View.OnClickListener {
-        public void onClick(View view) {
-            Toast.makeText(getApplicationContext(),
-                    "로그인 페이지로 이동합니다.",
-                    Toast.LENGTH_SHORT).show();
-
-            setContentView(R.layout.activity_signin);
-        }
-    }
-
-    private class MyOnClickListener2 implements View.OnClickListener {
-        public void onClick(View view) {
-            Toast.makeText(getApplicationContext(),
-                    "회원가입 페이지로 이동합니다.",
-                    Toast.LENGTH_SHORT).show();
-
-            setContentView(R.layout.activity_register);
-        }
-    }
 
     private class MyOnClickListener3 implements View.OnClickListener {
         @SuppressLint("ResourceAsColor")
