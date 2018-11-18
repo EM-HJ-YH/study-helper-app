@@ -15,11 +15,7 @@ import android.widget.Toast;
 public class TeamCalendarActivity extends AppCompatActivity {
 
 
-    Button recruitment = (Button) findViewById(R.id.recruitment);
-    Button mypage = (Button) findViewById(R.id.mypage);
-    Button myteam = (Button) findViewById(R.id.myteam);
-    Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
-    Button chatting = (Button) findViewById(R.id.chatting);
+
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -27,6 +23,12 @@ public class TeamCalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teamcalendar);
 
+
+        Button recruitment = (Button) findViewById(R.id.recruitment);
+        Button mypage = (Button) findViewById(R.id.mypage);
+        Button myteam = (Button) findViewById(R.id.myteam);
+        Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
+        Button chatting = (Button) findViewById(R.id.chatting);
 
         recruitment.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         mypage.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());

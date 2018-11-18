@@ -11,16 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button recruitment = (Button) findViewById(R.id.recruitment);
-    Button mypage = (Button) findViewById(R.id.mypage);
-    Button myteam = (Button) findViewById(R.id.myteam);
-    Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
-    Button chatting = (Button) findViewById(R.id.chatting);
 
-    TextView a1 = (TextView) findViewById(R.id.a1);
-    TextView a2 = (TextView) findViewById(R.id.a2);
-    TextView a3 = (TextView) findViewById(R.id.a3);
-    TextView a4 = (TextView) findViewById(R.id.a4);
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -33,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tosignup = (TextView) findViewById(R.id.tosignup);
         tosignup.setOnClickListener(new MyOnClickListener2());
+
+        Button recruitment = (Button) findViewById(R.id.recruitment);
+        Button mypage = (Button) findViewById(R.id.mypage);
+        Button myteam = (Button) findViewById(R.id.myteam);
+        Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
+        Button chatting = (Button) findViewById(R.id.chatting);
+
+        TextView a1 = (TextView) findViewById(R.id.a1);
+        TextView a2 = (TextView) findViewById(R.id.a2);
+        TextView a3 = (TextView) findViewById(R.id.a3);
+        TextView a4 = (TextView) findViewById(R.id.a4);
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new MyOnClickListener4());
@@ -77,21 +79,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class MyOnClickListener3 implements View.OnClickListener {
+    public class MyOnClickListener3 implements View.OnClickListener {
         @SuppressLint("ResourceAsColor")
         public void onClick(View view) {
+            System.out.print(view.getId());
             if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
                 setContentView(R.layout.activity_main);
-            }else if(view.getId()==R.id.mypage){
+            }if(view.getId()==R.id.mypage){
                 setContentView(R.layout.activity_mypage);
 
-            }else if(view.getId()==R.id.myteam){
+            }if(view.getId()==R.id.myteam){
                 setContentView(R.layout.activity_myteam);
 
-            }else if(view.getId()==R.id.teamcalendar){
+            }if(view.getId()==R.id.teamcalendar){
                 setContentView(R.layout.activity_teamcalendar);
 
-            }else if(view.getId()==R.id.chatting) {
+            }if(view.getId()==R.id.chatting) {
 
             }
 
