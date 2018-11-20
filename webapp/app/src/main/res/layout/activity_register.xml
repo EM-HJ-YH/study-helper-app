@@ -108,6 +108,11 @@
                 android:text="major"
                 android:textSize="15dp" />
 
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
             <RadioButton
                 android:id="@+id/radiomajor1"
                 android:layout_width="wrap_content"
@@ -142,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="지능시스템트랙" />
+            </RadioGroup>
 
 
         </LinearLayout>
@@ -164,6 +170,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
 
                 <RadioButton
                     android:id="@+id/radiograde1"
@@ -192,11 +203,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="4" />
+                </RadioGroup>
             </LinearLayout>
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="회원가입" />
