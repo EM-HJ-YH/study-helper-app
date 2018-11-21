@@ -1,5 +1,6 @@
 package com.hansung.android.studyhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,55 +23,59 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
 
     final static String TAG = "AndroidNodeJS";
-    final static String defaultUrl = "http://54.180.105.16:80";
+    final static String defaultUrl = "http://54.180.105.16:80/users";
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
 
                Button insertBtn = (Button) findViewById(R.id.go);
-        insertBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.activity_mypage);
-
-                EditText edit_name = (EditText) findViewById(R.id.editname);
-                EditText edit_id = (EditText) findViewById(R.id.editid);
-                EditText edit_pw = (EditText) findViewById(R.id.editpw);
-                final RadioGroup rgp1 = (RadioGroup)findViewById(R.id.radioGroup1);
-                RadioButton rm1 = (RadioButton) findViewById(R.id.radiomajor1);
-                RadioButton rm2 = (RadioButton) findViewById(R.id.radiomajor2);
-                RadioButton rm3 = (RadioButton) findViewById(R.id.radiomajor3);
-                RadioButton rm4 = (RadioButton) findViewById(R.id.radiomajor4);
-                RadioButton rm5 = (RadioButton) findViewById(R.id.radiomajor5);
-                final RadioGroup rgp2 = (RadioGroup)findViewById(R.id.radioGroup2);
-                RadioButton rg1 = (RadioButton) findViewById(R.id.radiograde1);
-                RadioButton rg2 = (RadioButton) findViewById(R.id.radiograde2);
-                RadioButton rg3 = (RadioButton) findViewById(R.id.radiograde3);
-                RadioButton rg4 = (RadioButton) findViewById(R.id.radiograde4);
-                int id = rgp1.getCheckedRadioButtonId();
-                RadioButton rb = (RadioButton) findViewById(id);
-                int id2 = rgp2.getCheckedRadioButtonId();
-                RadioButton rb2 = (RadioButton) findViewById(id2);
-
-                JSONObject postDataParam = new JSONObject();
-                try {
-                    postDataParam.put("userName", edit_name.getText().toString());
-                    postDataParam.put("userId", edit_id.getText().toString());
-                    postDataParam.put("userPw", edit_pw.getText().toString());
-                    postDataParam.put("major", rb.getText().toString());
-                    postDataParam.put("admissionYear", rb2.getText().toString());
-                } catch (JSONException e) {
-                    Log.e(TAG, "JSONEXception");
-                }
-                new InsertData(RegisterActivity.this).execute(postDataParam);
-                new GetData(RegisterActivity.this).execute();
+        insertBtn.setOnClickListener(new MyOnClickListener());
 
 
+    }
+
+    private class MyOnClickListener implements View.OnClickListener {
+
+        public void onClick(View view) {
+
+            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+            startActivity(intent);
+
+            EditText edit_name = (EditText) findViewById(R.id.editname);
+            edit_name.setText("");
+            EditText edit_id = (EditText) findViewById(R.id.editid);
+            EditText edit_pw = (EditText) findViewById(R.id.editpw);
+            final RadioGroup rgp1 = (RadioGroup)findViewById(R.id.radioGroup1);
+            RadioButton rm1 = (RadioButton) findViewById(R.id.radiomajor1);
+            RadioButton rm2 = (RadioButton) findViewById(R.id.radiomajor2);
+            RadioButton rm3 = (RadioButton) findViewById(R.id.radiomajor3);
+            RadioButton rm4 = (RadioButton) findViewById(R.id.radiomajor4);
+            RadioButton rm5 = (RadioButton) findViewById(R.id.radiomajor5);
+            final RadioGroup rgp2 = (RadioGroup)findViewById(R.id.radioGroup2);
+            RadioButton rg1 = (RadioButton) findViewById(R.id.radiograde1);
+            RadioButton rg2 = (RadioButton) findViewById(R.id.radiograde2);
+            RadioButton rg3 = (RadioButton) findViewById(R.id.radiograde3);
+            RadioButton rg4 = (RadioButton) findViewById(R.id.radiograde4);
+            int id = rgp1.getCheckedRadioButtonId();
+            RadioButton rb = (RadioButton) findViewById(id);
+            int id2 = rgp2.getCheckedRadioButtonId();
+            RadioButton rb2 = (RadioButton) findViewById(id2);
+
+            JSONObject postDataParam = new JSONObject();
+            try {
+                postDataParam.put("userName", edit_name.getText().toString());
+                postDataParam.put("userId", edit_id.getText().toString());
+                postDataParam.put("userPw", edit_pw.getText().toString());
+                postDataParam.put("major", rb.getText().toString());
+                postDataParam.put("admissionYear", rb2.getText().toString());
+            } catch (JSONException e) {
+                Log.e(TAG, "JSONEXception");
             }
-        });
-
+            new InsertData(RegisterActivity.this).execute(postDataParam);
+           // new GetData(RegisterActivity.this).execute();
+        }
     }
 }

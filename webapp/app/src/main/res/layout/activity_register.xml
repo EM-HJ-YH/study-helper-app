@@ -118,35 +118,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="정보시스템공학과" />
+                android:text="InformationSystem" />
 
             <RadioButton
                 android:id="@+id/radiomajor2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="IT응용시스템공학과" />
+                android:text="ITApplicationSystem" />
 
             <RadioButton
                 android:id="@+id/radiomajor3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="사이버보안트랙" />
+                android:text="Cyber​​Security" />
 
             <RadioButton
                 android:id="@+id/radiomajor4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="사물인터넷트랙" />
+                android:text="InternetOfThings" />
 
             <RadioButton
                 android:id="@+id/radiomajor5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="지능시스템트랙" />
+                android:text="Intelligentsystem" />
             </RadioGroup>
 
 

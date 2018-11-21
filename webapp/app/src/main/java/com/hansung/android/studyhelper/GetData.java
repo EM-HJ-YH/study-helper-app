@@ -27,6 +27,8 @@ public class GetData extends GetRequest {
         super(activity);
     }
 
+    static MypageActivity MypageActivity;
+
     @Override
     protected void onPreExecute() {
 
@@ -52,6 +54,7 @@ public class GetData extends GetRequest {
         txtList.setDividerHeight(10);
     }
 
+
     protected ArrayList<Regist> getArrayListFromJSONString(String jsonString) {
         ArrayList<Regist> output = new ArrayList();
         try {
@@ -62,11 +65,11 @@ public class GetData extends GetRequest {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
-                Regist regist = new Regist(jsonObject.getString("name"),
-                        jsonObject.getString("id"),
-                        jsonObject.getString("pw"),
+                Regist regist = new Regist(jsonObject.getString("userName"),
+                        jsonObject.getString("userId"),
+                        jsonObject.getString("userPw"),
                         jsonObject.getString("major"),
-                        jsonObject.getString("grade"));
+                        jsonObject.getString("admissionYear"));
 
                 output.add(regist);
             }

@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     "로그인 페이지로 이동합니다.",
                     Toast.LENGTH_SHORT).show();
 
-            setContentView(R.layout.activity_signin);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                     "회원가입 페이지로 이동합니다.",
                     Toast.LENGTH_SHORT).show();
 
-            setContentView(R.layout.activity_register);
+            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+            startActivity(intent);
         }
     }
 
