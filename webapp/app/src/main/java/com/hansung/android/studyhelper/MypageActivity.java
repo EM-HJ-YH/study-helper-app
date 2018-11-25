@@ -71,7 +71,11 @@ public class MypageActivity extends AppCompatActivity {
                     Adapter adapter = adapterView.getAdapter();
                     JSONObject postDataParam = new JSONObject();
                     try {
-                        postDataParam.put("id", ((Regist)adapter.getItem(i)).id);
+                        postDataParam.put("userName", ((Regist)adapter.getItem(i)).userName);
+                        postDataParam.put("userId", ((Regist)adapter.getItem(i)).userId);
+                        postDataParam.put("userPw", ((Regist)adapter.getItem(i)).userPw);
+                        postDataParam.put("major", ((Regist)adapter.getItem(i)).major);
+                        postDataParam.put("admissionYear", ((Regist)adapter.getItem(i)).admissionYear);
                     } catch (JSONException e) {
                         //Log.e(TAG, "JSONEXception");
                     }

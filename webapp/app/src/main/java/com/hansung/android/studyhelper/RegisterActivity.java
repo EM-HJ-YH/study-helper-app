@@ -45,7 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(intent);
 
             EditText edit_name = (EditText) findViewById(R.id.editname);
-            edit_name.setText("");
             EditText edit_id = (EditText) findViewById(R.id.editid);
             EditText edit_pw = (EditText) findViewById(R.id.editpw);
             final RadioGroup rgp1 = (RadioGroup)findViewById(R.id.radioGroup1);
@@ -70,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                 postDataParam.put("userId", edit_id.getText().toString());
                 postDataParam.put("userPw", edit_pw.getText().toString());
                 postDataParam.put("major", rb.getText().toString());
-                postDataParam.put("admissionYear", rb2.getText().toString());
+                postDataParam.put("admissionYear", Integer.parseInt(rb2.getText().toString()));
             } catch (JSONException e) {
                 Log.e(TAG, "JSONEXception");
             }

@@ -34,7 +34,7 @@ public class GetData extends GetRequest {
 
         String serverURLStr = RegisterActivity.defaultUrl.toString();
         try {
-            url = new URL(serverURLStr+"/get"+"-"+"data");  // http://serverURLStr/get-data
+            url = new URL(serverURLStr);  // http://serverURLStr/get-data
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class GetData extends GetRequest {
                         jsonObject.getString("userId"),
                         jsonObject.getString("userPw"),
                         jsonObject.getString("major"),
-                        jsonObject.getString("admissionYear"));
+                        jsonObject.getInt("admissionYear"));
 
                 output.add(regist);
             }

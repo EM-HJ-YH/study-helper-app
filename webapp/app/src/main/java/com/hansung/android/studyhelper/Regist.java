@@ -6,21 +6,21 @@ package com.hansung.android.studyhelper;
 
 public class Regist {
 
-    String name;
-    String id;
-    String pw;
+    String userName;
+    String userId;
+    String userPw;
     String major;
-    String grade;
+    int admissionYear;
 
-    public Regist(String name, String id, String pw, String major, String grade){
-        this.name = name;
-        this.id = id;
-        this.pw = pw;
+    public Regist(String userName, String userId, String userPw, String major, int admissionYear){
+        this.userName = userName;
+        this.userId = userId;
+        this.userPw = userPw;
         this.major = major;
-        this.grade = grade;
+        this.admissionYear = admissionYear;
     }
 
     public String toString() {
-        return String.format("Name = %s \n ID = %s \n Pw = %s \n Major = %s \n Grade = %s",name, id,pw,major,grade);
+        return String.format("userName = %s \n userId = %s \n userPw = %s \n major = %s \n admissionYear = %d",userName, userId,userPw,major,admissionYear);
     }
 }

@@ -18,9 +18,9 @@ public class InsertData extends PostRequest {
     @Override
     protected void onPreExecute() {
 
-        String serverURLStr = RegisterActivity.defaultUrl.toString();
+        String serverURLStr = SignInActivity.defaultUrl.toString();
         try {
-            url = new URL(serverURLStr + "/insert");
+            url = new URL(serverURLStr);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
