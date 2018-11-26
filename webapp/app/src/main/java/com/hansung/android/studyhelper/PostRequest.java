@@ -24,6 +24,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class PostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
+    static String token ="";
 
     public PostRequest(Activity activity) {
         this.activity = activity;
@@ -52,6 +53,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             writer.close();
             os.close();
 
+
             int responseCode = conn.getResponseCode();
 
             if (responseCode == HttpsURLConnection.HTTP_OK) {
@@ -65,6 +67,28 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     sb.append(line);
                     break;
                 }
+
+                JSONObject s = null;
+                s=new JSONObject(sb.toString());
+              //  if(s.get("success")==true) {
+
+                    System.out.println("eunmi" + sb.toString());
+
+                    JSONObject json = null;
+                    JSONObject result = null;
+
+                    try {
+                        json = new JSONObject(sb.toString());
+                        result = new JSONObject(json.get("result").toString());
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    System.out.println("eunmi" + json.get("result"));
+                    System.out.println("eunmi" + result.get("token"));
+                    token = result.get("token").toString();
+            //    }
 
                 in.close();
                 return sb.toString();
@@ -81,7 +105,8 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         Toast.makeText(activity, result,
-                Toast.LENGTH_LONG).show();
+        Toast.LENGTH_LONG).show();
+
     }
 
     private String getPostDataString(JSONObject params) throws Exception {
@@ -104,6 +129,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             result.append(URLEncoder.encode(key, "UTF-8"));
             result.append("=");
             result.append(URLEncoder.encode(value.toString(), "UTF-8"));
+
 
         }
         return result.toString();

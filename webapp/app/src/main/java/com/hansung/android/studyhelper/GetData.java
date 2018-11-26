@@ -27,7 +27,6 @@ public class GetData extends GetRequest {
         super(activity);
     }
 
-    static MypageActivity MypageActivity;
 
     @Override
     protected void onPreExecute() {

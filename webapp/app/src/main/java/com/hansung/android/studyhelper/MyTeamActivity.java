@@ -1,6 +1,7 @@
 package com.hansung.android.studyhelper;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,17 +44,20 @@ public class MyTeamActivity extends AppCompatActivity {
         @SuppressLint("ResourceAsColor")
         public void onClick(View view) {
             if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
-                setContentView(R.layout.activity_main);
-            }else if(view.getId()==R.id.mypage){
-                setContentView(R.layout.activity_mypage);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }if(view.getId()==R.id.mypage){
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+                startActivity(intent);
 
-            }else if(view.getId()==R.id.myteam){
-                setContentView(R.layout.activity_myteam);
+            }if(view.getId()==R.id.myteam){
+                Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
+                startActivity(intent);
 
-            }else if(view.getId()==R.id.teamcalendar){
-                setContentView(R.layout.activity_teamcalendar);
-
-            }else if(view.getId()==R.id.chatting) {
+            }if(view.getId()==R.id.teamcalendar){
+                Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
+                startActivity(intent);
+            }if(view.getId()==R.id.chatting) {
 
             }
 

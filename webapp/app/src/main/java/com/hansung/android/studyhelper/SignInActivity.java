@@ -49,6 +49,8 @@ public class SignInActivity extends AppCompatActivity {
 
             public void onClick(View view) {
 
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
 
                 EditText edit_id = (EditText) findViewById(R.id.editSid);
                 EditText edit_pw = (EditText) findViewById(R.id.editSpw);
@@ -62,7 +64,10 @@ public class SignInActivity extends AppCompatActivity {
                     Log.e(TAG, "JSONEXception");
                 }
                 new InsertData(com.hansung.android.studyhelper.SignInActivity.this).execute(postDataParam);
+                MainActivity.flag = 2;
                 // new GetData(RegisterActivity.this).execute();
+
+
             }
         }
     }

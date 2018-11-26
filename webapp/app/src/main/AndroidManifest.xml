@@ -24,7 +24,15 @@
             android:label=""></activity>
 
         <activity android:name=".MypageActivity"
+        android:label=""></activity>
+
+        <activity android:name=".MyTeamActivity"
             android:label=""></activity>
+
+        <activity android:name=".TeamCalendarActivity"
+            android:label=""></activity>
+
+
     </application>
 
 </manifest>

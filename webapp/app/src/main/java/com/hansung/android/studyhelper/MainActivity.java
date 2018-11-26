@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.hansung.android.studyhelper.PostRequest.token;
+
 public class MainActivity extends AppCompatActivity {
 
-
+     static int flag = 0;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         a1.setOnClickListener(new MyOnClickListener5());
 
-
     }
 
     private class MyOnClickListener1 implements View.OnClickListener {
@@ -77,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
                     "모집 글 등록 페이지로 이동합니다.",
                     Toast.LENGTH_SHORT).show();
 
-            setContentView(R.layout.activity_write);
+            Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -86,15 +88,19 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             System.out.print(view.getId());
             if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
-                setContentView(R.layout.activity_main);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }if(view.getId()==R.id.mypage){
-                setContentView(R.layout.activity_mypage);
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+                startActivity(intent);
 
             }if(view.getId()==R.id.myteam){
-                setContentView(R.layout.activity_myteam);
+                Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
+                startActivity(intent);
 
             }if(view.getId()==R.id.teamcalendar){
-                setContentView(R.layout.activity_teamcalendar);
+                Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
+                startActivity(intent);
 
             }if(view.getId()==R.id.chatting) {
 

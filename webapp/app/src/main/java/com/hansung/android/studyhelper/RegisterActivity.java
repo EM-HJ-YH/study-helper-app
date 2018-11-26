@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         public void onClick(View view) {
 
-            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
 
             EditText edit_name = (EditText) findViewById(R.id.editname);
@@ -74,6 +74,8 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e(TAG, "JSONEXception");
             }
             new InsertData(RegisterActivity.this).execute(postDataParam);
+            MainActivity.flag = 1;
+
            // new GetData(RegisterActivity.this).execute();
         }
     }

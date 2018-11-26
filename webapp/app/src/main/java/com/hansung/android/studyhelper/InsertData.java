@@ -15,10 +15,19 @@ public class InsertData extends PostRequest {
         super(activity);
     }
 
+
     @Override
     protected void onPreExecute() {
+        String serverURLStr="";
 
-        String serverURLStr = SignInActivity.defaultUrl.toString();
+        if(MainActivity.flag == 1){
+            serverURLStr = RegisterActivity.defaultUrl.toString();
+        }
+        else if(MainActivity.flag==2){
+            serverURLStr = SignInActivity.defaultUrl.toString();
+        }
+
+
         try {
             url = new URL(serverURLStr);
         } catch (MalformedURLException e) {
