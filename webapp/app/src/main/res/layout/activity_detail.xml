@@ -5,4 +5,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hansung.android.studyhelper.DetailActivity">
 
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="        제목 :        "
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/jemoc"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="한이음 팀원 모집"
+                android:ems="10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="        정원 :        5"
+                android:textSize="15dp" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/neyoung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="        내용 :        "
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/neyoung2"
+                android:layout_width="273dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:text="팀원 구합니다"
+                android:ems="10" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+
+            android:layout_gravity="center"
+            android:text="팀 신청" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         public void onClick(View view) {
 
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             startActivity(intent);
 
             EditText edit_name = (EditText) findViewById(R.id.editname);

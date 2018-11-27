@@ -28,6 +28,8 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
+        new GetData(MypageActivity.this).execute();
+
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
         Button myteam = (Button) findViewById(R.id.myteam);
@@ -40,6 +42,25 @@ public class MypageActivity extends AppCompatActivity {
         myteam.setOnClickListener(new MyOnClickListener3());
         teamcalendar.setOnClickListener(new MyOnClickListener3());
         chatting.setOnClickListener(new MyOnClickListener3());
+
+        ListView txtList = (ListView) findViewById(R.id.txtList);
+        txtList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Adapter adapter = adapterView.getAdapter();
+                JSONObject postDataParam = new JSONObject();
+                try {
+                    postDataParam.put("userName", ((Regist)adapter.getItem(i)).userName);
+                    postDataParam.put("userId", ((Regist)adapter.getItem(i)).userId);
+                    postDataParam.put("userPw", ((Regist)adapter.getItem(i)).userPw);
+                    postDataParam.put("major", ((Regist)adapter.getItem(i)).major);
+                    postDataParam.put("admissionYear", ((Regist)adapter.getItem(i)).admissionYear);
+                } catch (JSONException e) {
+                    //Log.e(TAG, "JSONEXception");
+                }
+
+            }
+        });
 
 
     }
@@ -69,24 +90,7 @@ public class MypageActivity extends AppCompatActivity {
 
             }
 
-            ListView txtList = (ListView) findViewById(R.id.txtList);
-            txtList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Adapter adapter = adapterView.getAdapter();
-                    JSONObject postDataParam = new JSONObject();
-                    try {
-                        postDataParam.put("userName", ((Regist)adapter.getItem(i)).userName);
-                        postDataParam.put("userId", ((Regist)adapter.getItem(i)).userId);
-                        postDataParam.put("userPw", ((Regist)adapter.getItem(i)).userPw);
-                        postDataParam.put("major", ((Regist)adapter.getItem(i)).major);
-                        postDataParam.put("admissionYear", ((Regist)adapter.getItem(i)).admissionYear);
-                    } catch (JSONException e) {
-                        //Log.e(TAG, "JSONEXception");
-                    }
-                    new GetData(MypageActivity.this).execute();
-                }
-            });
+
 
         }
     }

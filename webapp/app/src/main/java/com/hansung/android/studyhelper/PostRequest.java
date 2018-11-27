@@ -21,10 +21,13 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import static com.hansung.android.studyhelper.MainActivity.flag;
+
 public class PostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     static String token ="";
+
 
     public PostRequest(Activity activity) {
         this.activity = activity;
@@ -70,7 +73,9 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
 
                 JSONObject s = null;
                 s=new JSONObject(sb.toString());
-              //  if(s.get("success")==true) {
+                if(s.get("success").toString()=="true") {
+
+                    MainActivity.login=3;
 
                     System.out.println("eunmi" + sb.toString());
 
@@ -88,7 +93,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     System.out.println("eunmi" + json.get("result"));
                     System.out.println("eunmi" + result.get("token"));
                     token = result.get("token").toString();
-            //    }
+               }
 
                 in.close();
                 return sb.toString();
@@ -104,9 +109,18 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(activity, result,
-        Toast.LENGTH_LONG).show();
-
+        if(flag==1) {
+            Toast.makeText(activity, result,
+                    Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "회원가입에 성공하였습니다.",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(flag==2){
+            Toast.makeText(activity, result,
+                    Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "로그인에 성공하였습니다.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     private String getPostDataString(JSONObject params) throws Exception {

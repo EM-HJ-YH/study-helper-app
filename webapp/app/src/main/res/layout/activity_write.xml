@@ -57,6 +57,12 @@
                 android:text="        정원 :        "
                 android:textSize="15dp" />
 
+            <Spinner
+                android:id="@+id/countspinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/count"/>
+
 
         </LinearLayout>
 

@@ -14,18 +14,24 @@ import static com.hansung.android.studyhelper.PostRequest.token;
 public class MainActivity extends AppCompatActivity {
 
      static int flag = 0;
-
+    static int login=0;
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         TextView tosignin = (TextView) findViewById(R.id.tosignin);
         tosignin.setOnClickListener(new MyOnClickListener1());
 
         TextView tosignup = (TextView) findViewById(R.id.tosignup);
         tosignup.setOnClickListener(new MyOnClickListener2());
+
+        if(login==3){
+            tosignin.setVisibility(View.INVISIBLE);
+            tosignup.setVisibility(View.INVISIBLE);
+
+            login=4;
+        }
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
