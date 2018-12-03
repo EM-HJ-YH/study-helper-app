@@ -28,11 +28,13 @@ import android.widget.RadioGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.hansung.android.studyhelper.MainActivity.login;
+
 public class SignInActivity extends AppCompatActivity {
 
         final static String TAG = "AndroidNodeJS";
         final static String defaultUrl = "http://54.180.105.16:80/signinUser";
-
+        static String ID = "";
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -49,10 +51,9 @@ public class SignInActivity extends AppCompatActivity {
 
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
 
                 EditText edit_id = (EditText) findViewById(R.id.editSid);
+                ID = edit_id.toString();
                 EditText edit_pw = (EditText) findViewById(R.id.editSpw);
                 JSONObject postDataParam = new JSONObject();
                 try {
@@ -63,9 +64,16 @@ public class SignInActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     Log.e(TAG, "JSONEXception");
                 }
+
+
                 new InsertData(com.hansung.android.studyhelper.SignInActivity.this).execute(postDataParam);
                 MainActivity.flag = 2;
                 // new GetData(RegisterActivity.this).execute();
+
+                if(login==3) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
 
 
             }

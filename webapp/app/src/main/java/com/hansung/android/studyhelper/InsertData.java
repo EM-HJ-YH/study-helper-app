@@ -27,6 +27,10 @@ public class InsertData extends PostRequest {
             serverURLStr = SignInActivity.defaultUrl.toString();
         }
 
+        else if(MainActivity.flag==4){
+            serverURLStr = WriteActivity.defaultUrl.toString();
+        }
+
 
         try {
             url = new URL(serverURLStr);

@@ -71,29 +71,59 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     break;
                 }
 
-                JSONObject s = null;
-                s=new JSONObject(sb.toString());
-                if(s.get("success").toString()=="true") {
+                if(MainActivity.flag==2) {
 
-                    MainActivity.login=3;
+                    JSONObject s = null;
+                    s = new JSONObject(sb.toString());
+                    if (s.get("success").toString() == "true") {
 
-                    System.out.println("eunmi" + sb.toString());
+                        MainActivity.login = 3;
 
-                    JSONObject json = null;
-                    JSONObject result = null;
+                        System.out.println("eunmi" + sb.toString());
 
-                    try {
-                        json = new JSONObject(sb.toString());
-                        result = new JSONObject(json.get("result").toString());
+                        JSONObject json = null;
+                        JSONObject result = null;
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        try {
+                            json = new JSONObject(sb.toString());
+                            result = new JSONObject(json.get("result").toString());
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        System.out.println("eunmi" + json.get("result"));
+                        System.out.println("eunmi" + result.get("token"));
+                        token = result.get("token").toString();
                     }
+                }
 
-                    System.out.println("eunmi" + json.get("result"));
-                    System.out.println("eunmi" + result.get("token"));
-                    token = result.get("token").toString();
-               }
+                if(MainActivity.flag==4) {
+
+                    JSONObject s = null;
+                    s = new JSONObject(sb.toString());
+                    if (s.get("success").toString() == "true") {
+
+                        MainActivity.login = 4;
+
+                        System.out.println("eunmi" + sb.toString());
+
+                        JSONObject json = null;
+                        JSONObject result = null;
+
+                        try {
+                            json = new JSONObject(sb.toString());
+                            result = new JSONObject(json.get("result").toString());
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        System.out.println("eunmi" + json.get("result"));
+                        System.out.println("eunmi" + result.get("token"));
+                        token = result.get("token").toString();
+                    }
+                }
 
                 in.close();
                 return sb.toString();
@@ -119,6 +149,12 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             Toast.makeText(activity, result,
                     Toast.LENGTH_LONG).show();
             Toast.makeText(activity, "로그인에 성공하였습니다.",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(flag==4){
+            Toast.makeText(activity, result,
+                    Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "게시글 등록에 성공하였습니다.",
                     Toast.LENGTH_LONG).show();
         }
     }
