@@ -42,7 +42,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
             Button inserBtn = (Button) findViewById(R.id.signin2);
-            inserBtn.setOnClickListener(new com.hansung.android.studyhelper.SignInActivity.MyOnClickListener11());
+            inserBtn.setOnClickListener(new SignInActivity.MyOnClickListener11());
 
 
         }
@@ -65,11 +65,14 @@ public class SignInActivity extends AppCompatActivity {
                 }
 
 
-                new InsertData(com.hansung.android.studyhelper.SignInActivity.this).execute(postDataParam);
+                new InsertData(SignInActivity.this).execute(postDataParam);
                 MainActivity.flag = 2;
-                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
-                startActivity(intent);
+                if(login==3) {
 
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+
+                }
 
 
             }

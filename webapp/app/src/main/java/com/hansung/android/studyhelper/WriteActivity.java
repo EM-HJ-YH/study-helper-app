@@ -55,30 +55,32 @@ public class WriteActivity extends AppCompatActivity {
             SimpleDateFormat df;
             df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
             String str_date = df.format(new Date());
+            String members[]={localstorage.ID};
 
 
 
-            JSONObject postDataParam = new JSONObject();
+            JSONObject postDataParam2 = new JSONObject();
             try {
-                postDataParam.put("boardIndex", 0);
-                postDataParam.put("boardTitle", edit_jemoc.getText().toString());
-                postDataParam.put("userId", localstorage.ID);
-                postDataParam.put("boardDate", str_date);
-                postDataParam.put("boardContent",edit_neyoung.getText().toString()) ;
-                postDataParam.put("memberCount", Integer.parseInt(countspinner.getSelectedItem().toString()));
-                postDataParam.put("isRecruiting", "true");
-                postDataParam.put("members", "");
+                postDataParam2.put("boardIndex", 0);
+                postDataParam2.put("boardTitle", edit_jemoc.getText().toString());
+                postDataParam2.put("userId", localstorage.ID);
+                postDataParam2.put("boardDate", str_date);
+                postDataParam2.put("boardContent",edit_neyoung.getText().toString()) ;
+                postDataParam2.put("memberCount", Integer.parseInt(countspinner.getSelectedItem().toString()));
+                postDataParam2.put("isRecruiting", "true");
+                postDataParam2.put("members", members[0]);
 
             } catch (JSONException e) {
                 Log.e(TAG, "JSONEXception");
             }
-            new InsertData(WriteActivity.this).execute(postDataParam);
+            new InsertData(WriteActivity.this).execute(postDataParam2);
             MainActivity.flag = 4;
 
-            if(login==4) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-            }
+
+               // new GetData(WriteActivity.this).execute();
+
 
             // new GetData(RegisterActivity.this).execute();
         }

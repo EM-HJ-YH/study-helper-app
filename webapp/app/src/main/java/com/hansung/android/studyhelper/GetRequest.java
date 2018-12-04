@@ -25,6 +25,8 @@ import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import static com.hansung.android.studyhelper.localstorage.token;
+
 abstract public class GetRequest extends AsyncTask<String, Void, String> {
     final static String TAG = "AndroidNodeJS";
     Activity activity;
@@ -54,6 +56,7 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.setDoOutput(false);
+
 
             int resCode = conn.getResponseCode();
 

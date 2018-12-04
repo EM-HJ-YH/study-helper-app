@@ -8,9 +8,9 @@ import org.json.JSONObject;
 
 public class localstorage {
 
-   static JSONObject token;
-    static JSONObject Name;
-    static JSONObject ID;
-    static JSONObject Major;
-    static JSONObject AdmissionYear;
+   static String token;
+    static String Name;
+    static String ID;
+    static String Major;
+    static String AdmissionYear;
 }

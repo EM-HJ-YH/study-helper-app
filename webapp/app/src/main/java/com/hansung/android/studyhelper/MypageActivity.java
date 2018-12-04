@@ -34,7 +34,7 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-        new GetData(MypageActivity.this).execute();
+
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
@@ -54,9 +54,9 @@ public class MypageActivity extends AppCompatActivity {
         TextView majorview = (TextView) findViewById(R.id.majorview);
         TextView admissionview = (TextView) findViewById(R.id.admissionview);
 
-        nameview.setText(Name.toString());
-        idview.setText(ID.toString());
-        majorview.setText(Major.toString());
+//        nameview.setText(Name.toString());
+  //      idview.setText(ID.toString());
+    //    majorview.setText(Major.toString());
       //  admissionview.setText(GetData.admissionyear);
 
 

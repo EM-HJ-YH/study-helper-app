@@ -31,6 +31,7 @@ import static com.hansung.android.studyhelper.localstorage.token;
 public class PostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
+    static JSONObject result = null;
 
 
     public PostRequest(Activity activity) {
@@ -48,13 +49,18 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-            conn.setRequestProperty("Token", token.toString());
+            if(flag==5)
+            {   System.out.println("eunmi"  +token);
+                conn.setRequestProperty("x-acess-token", token);
+                System.out.println("eunmi"  +token);
 
+            }
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
             String str = getPostDataString(postDataParams[0]);
             Log.e("params", "Post String = " + str);
+
             writer.write(str);
 
             writer.flush();
@@ -83,19 +89,21 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     if (s.get("success").toString() == "true") {
 
                         MainActivity.login = 3;
+                        flag=5;
 
                         System.out.println("eunmi" + sb.toString());
 
                         JSONObject json = null;
-                        JSONObject result = null;
 
+
+                        //
                         try {
                             json = new JSONObject(sb.toString());
                             result = new JSONObject(json.get("result").toString());
-                            Name = new JSONObject(result.get("userName").toString());
-                            ID = new JSONObject(result.get("userId").toString());
-                            Major = new JSONObject(result.get("major").toString());
-                            AdmissionYear = new JSONObject(result.get("admissionYear").toString());
+                            //Name = new JSONObject(result.get("userName").toString()).toString();
+                           // ID = new JSONObject(result.get("userId").toString());
+                           // Major = new JSONObject(result.get("major").toString());
+                           // AdmissionYear = new JSONObject(result.get("admissionYear").toString());
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -103,9 +111,9 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
 
                         System.out.println("eunmi" + json.get("result"));
                         System.out.println("eunmi" + result.get("token"));
-                        System.out.println("eunmi" + ID);
-
-                        token =new JSONObject(result.get("token").toString());
+                        System.out.println("eunmi" + result.get("userId"));
+                        token =result.get("token").toString();
+                        ID = result.get("userId").toString();
 
                     }
                 }
