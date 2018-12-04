@@ -22,11 +22,15 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 import static com.hansung.android.studyhelper.MainActivity.flag;
+import static com.hansung.android.studyhelper.localstorage.ID;
+import static com.hansung.android.studyhelper.localstorage.Name;
+import static com.hansung.android.studyhelper.localstorage.Major;
+import static com.hansung.android.studyhelper.localstorage.AdmissionYear;
+import static com.hansung.android.studyhelper.localstorage.token;
 
 public class PostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
-    static String token ="";
 
 
     public PostRequest(Activity activity) {
@@ -44,6 +48,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
+            conn.setRequestProperty("Token", token.toString());
 
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
@@ -87,6 +92,10 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                         try {
                             json = new JSONObject(sb.toString());
                             result = new JSONObject(json.get("result").toString());
+                            Name = new JSONObject(result.get("userName").toString());
+                            ID = new JSONObject(result.get("userId").toString());
+                            Major = new JSONObject(result.get("major").toString());
+                            AdmissionYear = new JSONObject(result.get("admissionYear").toString());
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -94,36 +103,13 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
 
                         System.out.println("eunmi" + json.get("result"));
                         System.out.println("eunmi" + result.get("token"));
-                        token = result.get("token").toString();
+                        System.out.println("eunmi" + ID);
+
+                        token =new JSONObject(result.get("token").toString());
+
                     }
                 }
 
-                if(MainActivity.flag==4) {
-
-                    JSONObject s = null;
-                    s = new JSONObject(sb.toString());
-                    if (s.get("success").toString() == "true") {
-
-                        MainActivity.login = 4;
-
-                        System.out.println("eunmi" + sb.toString());
-
-                        JSONObject json = null;
-                        JSONObject result = null;
-
-                        try {
-                            json = new JSONObject(sb.toString());
-                            result = new JSONObject(json.get("result").toString());
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        System.out.println("eunmi" + json.get("result"));
-                        System.out.println("eunmi" + result.get("token"));
-                        token = result.get("token").toString();
-                    }
-                }
 
                 in.close();
                 return sb.toString();

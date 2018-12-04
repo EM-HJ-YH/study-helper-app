@@ -16,6 +16,11 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.hansung.android.studyhelper.localstorage.ID;
+import static com.hansung.android.studyhelper.localstorage.Name;
+import static com.hansung.android.studyhelper.localstorage.Major;
+import static com.hansung.android.studyhelper.localstorage.AdmissionYear;
+
 /**
  * Created by leeem on 2018-11-17.
  */
@@ -25,6 +30,7 @@ public class MypageActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
@@ -43,24 +49,16 @@ public class MypageActivity extends AppCompatActivity {
         teamcalendar.setOnClickListener(new MyOnClickListener3());
         chatting.setOnClickListener(new MyOnClickListener3());
 
-        ListView txtList = (ListView) findViewById(R.id.txtList);
-        txtList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Adapter adapter = adapterView.getAdapter();
-                JSONObject postDataParam = new JSONObject();
-                try {
-                    postDataParam.put("userName", ((Regist)adapter.getItem(i)).userName);
-                    postDataParam.put("userId", ((Regist)adapter.getItem(i)).userId);
-                    postDataParam.put("userPw", ((Regist)adapter.getItem(i)).userPw);
-                    postDataParam.put("major", ((Regist)adapter.getItem(i)).major);
-                    postDataParam.put("admissionYear", ((Regist)adapter.getItem(i)).admissionYear);
-                } catch (JSONException e) {
-                    //Log.e(TAG, "JSONEXception");
-                }
+        TextView nameview = (TextView) findViewById(R.id.nameview);
+        TextView idview = (TextView) findViewById(R.id.idview);
+        TextView majorview = (TextView) findViewById(R.id.majorview);
+        TextView admissionview = (TextView) findViewById(R.id.admissionview);
 
-            }
-        });
+        nameview.setText(Name.toString());
+        idview.setText(ID.toString());
+        majorview.setText(Major.toString());
+      //  admissionview.setText(GetData.admissionyear);
+
 
 
     }

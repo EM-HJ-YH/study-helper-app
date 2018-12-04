@@ -73,22 +73,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
 
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="124dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
+
+
+                    <EditText
+                        android:id="@+id/a1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="웹앤앱 Team                                                                        "
+                        android:textSize="15dp"/>
 
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>

@@ -22,6 +22,8 @@
 
         <activity android:name=".SignInActivity"
             android:label=""></activity>
+        <activity android:name=".DetailActivity"
+            android:label=""></activity>
 
         <activity android:name=".MypageActivity"
         android:label=""></activity>
@@ -34,8 +36,7 @@
         <activity android:name=".WriteActivity"
             android:label=""></activity>
 
-        <activity android:name=".DetailActivity"
-            android:label=""></activity>
+
 
 
 

@@ -5,16 +5,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by leeem on 2018-11-17.
  */
 
 public class TeamCalendarActivity extends AppCompatActivity {
+    //static CalendarDay selectedDay = null;
+    static boolean Selected;
 
+    ArrayAdapter<String> adapter;
+    ArrayList<String> arrayList;
+   // ArrayList<DayData> Day_data;
+
+    EditText edit_schedule;
+    ListView schedule_List;
+    TimePicker timePicker;
+    String DATE;
+
+    int year;
+    int month;
+    int day;
+    int hour;
+    int min;
+    String AMPM = "";
+    String text_schedule = "";
 
 
 
@@ -23,6 +47,7 @@ public class TeamCalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teamcalendar);
+        //Day_data = new ArrayList<DayData>();
 
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
@@ -36,6 +61,8 @@ public class TeamCalendarActivity extends AppCompatActivity {
         myteam.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         teamcalendar.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         chatting.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
+
+
 
 
     }

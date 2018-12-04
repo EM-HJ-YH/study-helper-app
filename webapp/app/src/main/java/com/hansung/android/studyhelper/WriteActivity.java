@@ -60,10 +60,15 @@ public class WriteActivity extends AppCompatActivity {
 
             JSONObject postDataParam = new JSONObject();
             try {
-                postDataParam.put("userId", SignInActivity.ID);
+                postDataParam.put("boardIndex", 0);
                 postDataParam.put("boardTitle", edit_jemoc.getText().toString());
+                postDataParam.put("userId", localstorage.ID);
                 postDataParam.put("boardDate", str_date);
-                postDataParam.put("memberCount", Integer.parseInt(countspinner.toString()));
+                postDataParam.put("boardContent",edit_neyoung.getText().toString()) ;
+                postDataParam.put("memberCount", Integer.parseInt(countspinner.getSelectedItem().toString()));
+                postDataParam.put("isRecruiting", "true");
+                postDataParam.put("members", "");
+
             } catch (JSONException e) {
                 Log.e(TAG, "JSONEXception");
             }

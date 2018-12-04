@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.hansung.android.studyhelper.PostRequest.token;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tosignup = (TextView) findViewById(R.id.tosignup);
         tosignup.setOnClickListener(new MyOnClickListener2());
 
-        if(login==3){
+        if(login>=3){
             tosignin.setVisibility(View.INVISIBLE);
             tosignup.setVisibility(View.INVISIBLE);
 

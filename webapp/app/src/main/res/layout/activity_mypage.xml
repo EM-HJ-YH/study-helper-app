@@ -83,28 +83,28 @@
                 android:textSize="20dp"/>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/nameview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="이름"
                 android:textSize="15dp"/>
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/idview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ID"
                 android:textSize="15dp"/>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/majorview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="전공"
                 android:textSize="15dp"/>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/admissionview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="학년"
@@ -115,13 +115,6 @@
                 android:layout_height="wrap_content"
                 android:text="회원정보 수정"/>
 
-            <ListView
-                android:id="@+id/txtList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ff99ccee"
-                android:textColor="#ff0000ff"
-                android:textSize="12dp"></ListView>
         </LinearLayout>
 
     </LinearLayout>

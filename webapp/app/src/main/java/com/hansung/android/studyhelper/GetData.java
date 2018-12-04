@@ -22,10 +22,17 @@ import java.util.ArrayList;
  * Created by kwanwoo on 2017. 10. 17..
  */
 
-public class GetData extends GetRequest {
+public class GetData extends PostRequest {
     public GetData(Activity activity) {
         super(activity);
     }
+
+    static String name;
+    static String id2;
+    static String pw;
+    static String major;
+    static int admissionyear;
+
 
 
     @Override
@@ -43,14 +50,9 @@ public class GetData extends GetRequest {
     protected void onPostExecute(String jsonString) {
         if (jsonString == null)
             return;
-        ArrayList<Regist> arrayList = getArrayListFromJSONString(jsonString);
+        getArrayListFromJSONString(jsonString);
 
-        ArrayAdapter adapter = new ArrayAdapter(activity,
-                android.R.layout.simple_list_item_1,
-                arrayList.toArray());
-        ListView txtList = activity.findViewById(R.id.txtList);
-        txtList.setAdapter(adapter);
-        txtList.setDividerHeight(10);
+
     }
 
 
@@ -64,16 +66,18 @@ public class GetData extends GetRequest {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
-                Regist regist = new Regist(jsonObject.getString("userName"),
-                        jsonObject.getString("userId"),
-                        jsonObject.getString("userPw"),
-                        jsonObject.getString("major"),
-                        jsonObject.getInt("admissionYear"));
+                if(jsonObject.getString("userName")=="a") {
 
-                output.add(regist);
+                    name = jsonObject.getString("userName");
+                    id2 = jsonObject.getString("userId");
+                    pw = jsonObject.getString("userPw");
+                    major = jsonObject.getString("major");
+                    admissionyear = jsonObject.getInt("admissionYear");
+                }
+
             }
         } catch (JSONException e) {
-            Log.e(TAG, "Exception in processing JSONString.", e);
+           // Log.e(TAG, "Exception in processing JSONString.", e);
             e.printStackTrace();
         }
         return output;

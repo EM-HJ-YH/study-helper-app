@@ -34,7 +34,7 @@ public class SignInActivity extends AppCompatActivity {
 
         final static String TAG = "AndroidNodeJS";
         final static String defaultUrl = "http://54.180.105.16:80/signinUser";
-        static String ID = "";
+
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -53,7 +53,6 @@ public class SignInActivity extends AppCompatActivity {
 
 
                 EditText edit_id = (EditText) findViewById(R.id.editSid);
-                ID = edit_id.toString();
                 EditText edit_pw = (EditText) findViewById(R.id.editSpw);
                 JSONObject postDataParam = new JSONObject();
                 try {
@@ -68,12 +67,9 @@ public class SignInActivity extends AppCompatActivity {
 
                 new InsertData(com.hansung.android.studyhelper.SignInActivity.this).execute(postDataParam);
                 MainActivity.flag = 2;
-                // new GetData(RegisterActivity.this).execute();
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+                startActivity(intent);
 
-                if(login==3) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
 
 
             }
