@@ -44,13 +44,13 @@ public class TeamCalendarActivity extends AppCompatActivity {
         Button mypage = (Button) findViewById(R.id.mypage);
         Button myteam = (Button) findViewById(R.id.myteam);
         Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
-        Button chatting = (Button) findViewById(R.id.chatting);
+        Button studycafe = (Button) findViewById(R.id.studycafe);
 
         recruitment.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         mypage.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         myteam.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         teamcalendar.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
-        chatting.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
+        studycafe.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
 
         CalendarView CV = (CalendarView)findViewById(R.id.calendarView);
 
@@ -116,7 +116,7 @@ public class TeamCalendarActivity extends AppCompatActivity {
             }if(view.getId()==R.id.teamcalendar){
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
                 startActivity(intent);
-            } if(view.getId()==R.id.chatting) {
+            } if(view.getId()==R.id.studycafe) {
 
             }
 

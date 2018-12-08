@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Button mypage = (Button) findViewById(R.id.mypage);
         Button myteam = (Button) findViewById(R.id.myteam);
         Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
-        Button chatting = (Button) findViewById(R.id.chatting);
+        Button studycafe = (Button) findViewById(R.id.studycafe);
 
         TextView a1 = (TextView) findViewById(R.id.a1);
         TextView a2 = (TextView) findViewById(R.id.a2);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mypage.setOnClickListener(new MyOnClickListener3());
         myteam.setOnClickListener(new MyOnClickListener3());
         teamcalendar.setOnClickListener(new MyOnClickListener3());
-        chatting.setOnClickListener(new MyOnClickListener3());
+        studycafe.setOnClickListener(new MyOnClickListener3());
 
         a1.setOnClickListener(new MyOnClickListener5());
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
                 startActivity(intent);
 
-            }if(view.getId()==R.id.chatting) {
+            }if(view.getId()==R.id.studycafe) {
 
             }
 

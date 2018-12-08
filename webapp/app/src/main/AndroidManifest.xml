@@ -33,6 +33,9 @@
 
         <activity android:name=".TeamCalendarActivity"
             android:label=""></activity>
+
+        <activity android:name=".StudyCafeActivity"
+            android:label=""></activity>
         <activity android:name=".WriteActivity"
             android:label=""></activity>
 
