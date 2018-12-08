@@ -1,12 +1,17 @@
 package com.hansung.android.studyhelper;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,25 +25,10 @@ import java.util.ArrayList;
  */
 
 public class TeamCalendarActivity extends AppCompatActivity {
-    //static CalendarDay selectedDay = null;
-    static boolean Selected;
-
-    ArrayAdapter<String> adapter;
-    ArrayList<String> arrayList;
-   // ArrayList<DayData> Day_data;
-
-    EditText edit_schedule;
-    ListView schedule_List;
-    TimePicker timePicker;
-    String DATE;
-
-    int year;
-    int month;
-    int day;
-    int hour;
-    int min;
-    String AMPM = "";
-    String text_schedule = "";
+   // int year = 0;
+   // int month=0;
+   // int day=0;
+    String value="";
 
 
 
@@ -47,7 +37,7 @@ public class TeamCalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teamcalendar);
-        //Day_data = new ArrayList<DayData>();
+       // Day_data = new ArrayList<DayData>();
 
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
@@ -62,10 +52,51 @@ public class TeamCalendarActivity extends AppCompatActivity {
         teamcalendar.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
         chatting.setOnClickListener(new TeamCalendarActivity.MyOnClickListener3());
 
+        CalendarView CV = (CalendarView)findViewById(R.id.calendarView);
+
+
+        CV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+
+                int Syear = year;
+                int Smonth = month+1;
+                int Sday = day;
+
+                System.out.println("eunmi"+Syear +Smonth + Sday);
+                AlertDialog.Builder ad = new AlertDialog.Builder(TeamCalendarActivity.this);
+                ad.setTitle("Schedule");
+                final EditText et = new EditText(TeamCalendarActivity.this);
+                ad.setView(et);
+                ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Log.v(TAG,"No Btn Click");
+                        dialog.dismiss();     //닫기
+                        // Event
+                    }
+                });
+                ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        value = et.getText().toString();
+
+                        dialog.dismiss();
+
+                        TextView schedule =(TextView) findViewById(R.id.schedule);
+                        schedule.setText(value);
+                    }
+                });
+
+                ad.show();
 
 
 
+            }
+        });
     }
+
 
 
     private class MyOnClickListener3 implements View.OnClickListener {

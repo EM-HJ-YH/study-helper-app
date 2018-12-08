@@ -40,11 +40,11 @@ public class WriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         Button insertBtn2 = (Button) findViewById(R.id.sub);
-        insertBtn2.setOnClickListener(new MyOnClickListener());
+        insertBtn2.setOnClickListener(new MyOnClickListener111());
 
     }
 
-    private class MyOnClickListener implements View.OnClickListener {
+    private class MyOnClickListener111 implements View.OnClickListener {
 
         public void onClick(View view) {
 
@@ -69,15 +69,16 @@ public class WriteActivity extends AppCompatActivity {
                 postDataParam2.put("memberCount", Integer.parseInt(countspinner.getSelectedItem().toString()));
                 postDataParam2.put("isRecruiting", "true");
                 postDataParam2.put("members", members[0]);
+                MainActivity.flag = 4;
 
             } catch (JSONException e) {
                 Log.e(TAG, "JSONEXception");
             }
             new InsertData(WriteActivity.this).execute(postDataParam2);
-            MainActivity.flag = 4;
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+
+                Intent intent111 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent111);
 
                // new GetData(WriteActivity.this).execute();
 
