@@ -58,7 +58,8 @@ public class MyTeamActivity extends AppCompatActivity  {
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
                 startActivity(intent);
             }if(view.getId()==R.id.studycafe) {
-
+                Intent intent = new Intent(getApplicationContext(), StudyCafeActivity.class);
+                startActivity(intent);
             }
 
 

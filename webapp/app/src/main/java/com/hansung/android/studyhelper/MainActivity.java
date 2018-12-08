@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }if(view.getId()==R.id.studycafe) {
-
+                Intent intent = new Intent(getApplicationContext(), StudyCafeActivity.class);
+                startActivity(intent);
             }
 
 
