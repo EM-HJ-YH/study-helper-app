@@ -38,11 +38,17 @@
             android:label=""></activity>
         <activity android:name=".WriteActivity"
             android:label=""></activity>
+        <activity android:name=".ReservationActivity"
+            android:label=""></activity>
 
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCc0BG0K3mdZotKVnOj9tccG-4Oqrfv5KU" />
 
 
 
     </application>
+
+
 
 </manifest>
