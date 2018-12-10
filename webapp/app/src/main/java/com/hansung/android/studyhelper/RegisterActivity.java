@@ -75,8 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
             new InsertData(RegisterActivity.this).execute(postDataParam);
             MainActivity.flag = 1;
-
-           // new GetData(RegisterActivity.this).execute();
+            new GetData(RegisterActivity.this).execute();
         }
     }
 }

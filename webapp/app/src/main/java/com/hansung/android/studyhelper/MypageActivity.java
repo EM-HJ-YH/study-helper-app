@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.hansung.android.studyhelper.GetData.admissionyear;
 import static com.hansung.android.studyhelper.localstorage.ID;
 import static com.hansung.android.studyhelper.localstorage.Name;
 import static com.hansung.android.studyhelper.localstorage.Major;
@@ -34,7 +35,7 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-
+        new GetData(MypageActivity.this).execute();
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
@@ -54,10 +55,10 @@ public class MypageActivity extends AppCompatActivity {
         TextView majorview = (TextView) findViewById(R.id.majorview);
         TextView admissionview = (TextView) findViewById(R.id.admissionview);
 
-//        nameview.setText(Name.toString());
-  //      idview.setText(ID.toString());
-    //    majorview.setText(Major.toString());
-      //  admissionview.setText(GetData.admissionyear);
+        nameview.setText(Name);
+        idview.setText(ID);
+        majorview.setText(Major);
+        admissionview.setText(admissionyear);
 
 
 

@@ -5,70 +5,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hansung.android.studyhelper.MypageActivity">
 
-
-
     <LinearLayout
-        android:layout_width="377dp"
-        android:layout_height="49dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="26dp"
-        tools:ignore="MissingConstraints">
-
-        <Button
-            android:id="@+id/recruitment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#3F51B5"
-            android:text="Recruitment"
-            android:textSize="10dp" />
-
-        <Button
-            android:id="@+id/mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:text="My Page"
-            android:textSize="10dp" />
-
-        <Button
-            android:id="@+id/myteam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#3F51B5"
-            android:text="My Team"
-            android:textSize="10dp" />
-
-        <Button
-            android:id="@+id/teamcalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#3F51B5"
-            android:text="Team Calendar"
-            android:textSize="9dp" />
-
-        <Button
-            android:id="@+id/studycafe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#3F51B5"
-            android:text="StudyCafe"
-            android:textSize="10dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="369dp"
-        android:layout_height="421dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="82dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+        <LinearLayout
+            android:layout_width="377dp"
+            android:layout_height="49dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="4dp"
+            tools:layout_editor_absoluteY="26dp">
+
+            <Button
+                android:id="@+id/recruitment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#3F51B5"
+                android:text="Recruitment"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="My Page"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/myteam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#3F51B5"
+                android:text="My Team"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/teamcalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#3F51B5"
+                android:text="Team Calendar"
+                android:textSize="9dp" />
+
+            <Button
+                android:id="@+id/studycafe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#3F51B5"
+                android:text="StudyCafe"
+                android:textSize="10dp" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,40 +80,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="내 정보"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/nameview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="이름"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/idview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ID"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/majorview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="전공"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/admissionview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="학년"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="회원정보 수정"/>
+                android:text="회원정보 수정" />
 
         </LinearLayout>
 

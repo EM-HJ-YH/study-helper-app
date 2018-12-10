@@ -71,7 +71,7 @@ public class SignInActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-
+                    new GetData(SignInActivity.this).execute();
                 }
 
 

@@ -49,9 +49,9 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-            if(flag==5)
+            if(token!=null)
             {   System.out.println("eunmi"  +token);
-                conn.setRequestProperty("x-acess-token", token);
+                conn.setRequestProperty("x-access-token", token);
                 System.out.println("eunmi"  +token);
 
             }
@@ -90,7 +90,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
 
                         MainActivity.login = 3;
                         flag=5;
-
+                        System.out.println("eunmi" + flag);
                         System.out.println("eunmi" + sb.toString());
 
                         JSONObject json = null;

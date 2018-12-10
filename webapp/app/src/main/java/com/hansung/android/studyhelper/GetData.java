@@ -18,6 +18,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static java.lang.System.out;
+
 /**
  * Created by kwanwoo on 2017. 10. 17..
  */
@@ -31,7 +33,7 @@ public class GetData extends PostRequest {
     static String id2;
     static String pw;
     static String major;
-    static int admissionyear;
+    static String admissionyear;
 
 
 
@@ -50,7 +52,7 @@ public class GetData extends PostRequest {
     protected void onPostExecute(String jsonString) {
         if (jsonString == null)
             return;
-        getArrayListFromJSONString(jsonString);
+        ArrayList<Regist> arrayList= getArrayListFromJSONString(jsonString);
 
 
     }
@@ -61,19 +63,26 @@ public class GetData extends PostRequest {
         try {
 
             JSONArray jsonArray = new JSONArray(jsonString);
-
+            System.out.println("Lee1");
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
-                if(jsonObject.getString("userName")=="a") {
+                System.out.println("Lee2");
+                if(jsonObject.getString("userId")==localstorage.ID) {
 
                     name = jsonObject.getString("userName");
+                    System.out.println("Lee"+name);
                     id2 = jsonObject.getString("userId");
+                    System.out.println("Lee"+id2);
                     pw = jsonObject.getString("userPw");
+                    System.out.println("Lee"+pw);
                     major = jsonObject.getString("major");
-                    admissionyear = jsonObject.getInt("admissionYear");
+                    System.out.println("Lee"+major);
+                    admissionyear = jsonObject.getString("admissionYear");
+                    System.out.println("Lee"+admissionyear);
                 }
+
 
             }
         } catch (JSONException e) {
