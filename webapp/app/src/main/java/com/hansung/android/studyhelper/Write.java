@@ -5,11 +5,13 @@ package com.hansung.android.studyhelper;
  */
 
 public class Write {
-
+    int boardIndex;
     String userId;
     String boardTitle;
     String boardDate;
     int memberCount;
+    boolean isRecruiting;
+    String members[];
 
     public Write( String userId, String boardTitle, String boardDate, int memberCount){
         this.userId = userId;

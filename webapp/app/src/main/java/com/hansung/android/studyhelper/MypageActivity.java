@@ -27,7 +27,7 @@ import static com.hansung.android.studyhelper.localstorage.AdmissionYear;
  */
 
 public class MypageActivity extends AppCompatActivity {
-
+    static ListView txtview;
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-        new GetData(MypageActivity.this).execute();
+        //new GetData(MypageActivity.this).execute();
 
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
@@ -50,19 +50,29 @@ public class MypageActivity extends AppCompatActivity {
         teamcalendar.setOnClickListener(new MyOnClickListener3());
         studycafe.setOnClickListener(new MyOnClickListener3());
 
+        Button editinfo = (Button) findViewById(R.id.editinfo);
+
+        editinfo.setOnClickListener(new MyOnClickListener44());
+       TextView idview = (TextView) findViewById(R.id.idview);
         TextView nameview = (TextView) findViewById(R.id.nameview);
-        TextView idview = (TextView) findViewById(R.id.idview);
+        TextView pwview = (TextView) findViewById(R.id.pwview);
         TextView majorview = (TextView) findViewById(R.id.majorview);
-        TextView admissionview = (TextView) findViewById(R.id.admissionview);
+        TextView adview = (TextView) findViewById(R.id.adview);
 
-        nameview.setText(Name);
-        idview.setText(ID);
-        majorview.setText(Major);
-        admissionview.setText(admissionyear);
-
-
-
+        idview.setText("ID : " + localstorage.ID);
+        nameview.setText("이름 : " + localstorage.Name);
+        pwview.setText("비밀번호 : " +localstorage.PW);
+        majorview.setText("전공 : "+localstorage.Major);
+        adview.setText("학년 : "+localstorage.AdmissionYear);
     }
+
+    private class MyOnClickListener44 implements View.OnClickListener {
+
+        public void onClick(View view) {
+
+        }
+    }
+
 
 
     private class MyOnClickListener3 implements View.OnClickListener {
@@ -74,6 +84,7 @@ public class MypageActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }if(view.getId()==R.id.mypage){
+                //new GetData(MypageActivity.this).execute();
                 Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
                 startActivity(intent);
 

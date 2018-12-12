@@ -123,39 +123,10 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/a1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="웹앱 팀원 모집                                                                              "
-                    android:textSize="15dp"/>
-
-                <EditText
-                    android:id="@+id/a2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="IOT프로덕트 팀원 모집                                                                   "
-                    android:textSize="15dp"/>
-
-                <EditText
-                    android:id="@+id/a3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="독서클럽 팀원 모집                                                                      "
-                    android:textSize="15dp"/>
-
-                <EditText
-                    android:id="@+id/a4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="JAVA 튜티 모집                                                                              "
-                    android:textSize="15dp"/>
-                <EditText
-                    android:id="@+id/a5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="한이음 팀원 모집                                                                              "
-                    android:textSize="15dp"/>
+                <ListView
+                    android:id="@+id/teamview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </LinearLayout>
 

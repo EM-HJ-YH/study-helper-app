@@ -81,36 +81,40 @@
                 android:layout_height="wrap_content"
                 android:text="내 정보"
                 android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/nameview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="이름"
-                android:textSize="15dp" />
-
             <TextView
                 android:id="@+id/idview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ID"
-                android:textSize="15dp" />
-
+                android:text="내 정보"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/nameview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="내 정보"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/pwview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="내 정보"
+                android:textSize="20dp" />
             <TextView
                 android:id="@+id/majorview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="전공"
-                android:textSize="15dp" />
-
+                android:text="내 정보"
+                android:textSize="20dp" />
             <TextView
-                android:id="@+id/admissionview"
+                android:id="@+id/adview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="학년"
-                android:textSize="15dp" />
+                android:text="내 정보"
+                android:textSize="20dp" />
+
 
             <Button
+                android:id="@+id/editinfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="회원정보 수정" />

@@ -56,6 +56,12 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.setDoOutput(false);
+            if(token!=null)
+            {   System.out.println("eunmi"  +token);
+                conn.setRequestProperty("x-access-token", token);
+                System.out.println("eunmi"  +token);
+
+            }
 
 
             int resCode = conn.getResponseCode();

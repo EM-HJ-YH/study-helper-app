@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,10 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
      static int flag = 0;
     static int login=0;
+    static  ListView teamview;
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new GetRecruiment(MainActivity.this).execute();
         setContentView(R.layout.activity_main);
         TextView tosignin = (TextView) findViewById(R.id.tosignin);
         tosignin.setOnClickListener(new MyOnClickListener1());
@@ -39,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Button teamcalendar = (Button) findViewById(R.id.teamcalendar);
         Button studycafe = (Button) findViewById(R.id.studycafe);
 
-        TextView a1 = (TextView) findViewById(R.id.a1);
-        TextView a2 = (TextView) findViewById(R.id.a2);
-        TextView a3 = (TextView) findViewById(R.id.a3);
-        TextView a4 = (TextView) findViewById(R.id.a4);
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new MyOnClickListener4());
@@ -52,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         teamcalendar.setOnClickListener(new MyOnClickListener3());
         studycafe.setOnClickListener(new MyOnClickListener3());
 
-        a1.setOnClickListener(new MyOnClickListener5());
+
+         teamview = (ListView)findViewById(R.id.teamview);
 
     }
 
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }if(view.getId()==R.id.mypage){
+                //new GetData(MainActivity.this).execute();
                 Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
                 startActivity(intent);
 
@@ -117,25 +118,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    private class MyOnClickListener5 implements View.OnClickListener {
-        public void onClick(View view) {
-            if(view.getId()==R.id.a1){  //클릭한 버튼의 아이디가 R.id.bt_red일때
-                setContentView(R.layout.activity_detail);
-            }else if(view.getId()==R.id.a2){
-                setContentView(R.layout.activity_detail);
-
-            }else if(view.getId()==R.id.a3){
-                setContentView(R.layout.activity_detail);
-
-            }else if(view.getId()==R.id.a4){
-                setContentView(R.layout.activity_detail);
-
-            }
 
 
 
         }
-    }
 
 
-}
+

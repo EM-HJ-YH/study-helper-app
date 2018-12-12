@@ -60,6 +60,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     new OutputStreamWriter(os, "UTF-8"));
             String str = getPostDataString(postDataParams[0]);
             Log.e("params", "Post String = " + str);
+            localstorage.PW = postDataParams[0].get("userPw").toString();
 
             writer.write(str);
 
@@ -100,10 +101,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                         try {
                             json = new JSONObject(sb.toString());
                             result = new JSONObject(json.get("result").toString());
-                            //Name = new JSONObject(result.get("userName").toString()).toString();
-                           // ID = new JSONObject(result.get("userId").toString());
-                           // Major = new JSONObject(result.get("major").toString());
-                           // AdmissionYear = new JSONObject(result.get("admissionYear").toString());
+
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -114,6 +112,9 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                         System.out.println("eunmi" + result.get("userId"));
                         token =result.get("token").toString();
                         ID = result.get("userId").toString();
+                        Name = result.get("userName").toString();
+                        Major = result.get("major").toString();
+                        AdmissionYear = result.get("admissionYear").toString();
 
                     }
                 }

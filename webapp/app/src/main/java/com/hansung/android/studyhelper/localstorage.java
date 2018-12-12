@@ -11,6 +11,7 @@ public class localstorage {
    static String token;
     static String Name;
     static String ID;
+    static String PW;
     static String Major;
     static String AdmissionYear;
 }
