@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class GetRecruiment extends GetRequest {
 
-
+    static String teamresult = null;
     public GetRecruiment(Activity activity) {
         super(activity);
     }
@@ -50,7 +50,7 @@ public class GetRecruiment extends GetRequest {
 
     protected ArrayList<Write> getArrayListFromJSONString(String jsonString) {
         ArrayList<Write> output = new ArrayList();
-        String teamresult = null;
+
         try {
             System.out.println("Lee1");
             JSONObject json = new JSONObject(jsonString);
@@ -62,10 +62,14 @@ public class GetRecruiment extends GetRequest {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 System.out.println("eunmilee"+i);
                 //teamresult = new JSONObject(jsonObject.get("result").toString());
-                Write write = new Write(jsonObject.getString("userId"),
+                Write write = new Write( jsonObject.getInt("boardIndex"),
+                        jsonObject.getString("userId"),
                         jsonObject.getString("boardTitle"),
+                        jsonObject.getString("boardContent"),
                         jsonObject.getString("boardDate"),
-                         jsonObject.getInt("memberCount"));
+                         jsonObject.getInt("memberCount"),
+                        jsonObject.getBoolean("isRecruiting"),
+                        jsonObject.getString("members"));
 
                 output.add(write);
 

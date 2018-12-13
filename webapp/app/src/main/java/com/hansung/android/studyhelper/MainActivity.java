@@ -4,12 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
      static int flag = 0;
     static int login=0;
     static  ListView teamview;
+
+    static int a = 0;
+    static String b= null;
+    static String c= null;
+    static String d= null;
+    static String e= null;
+    static int f= 0;
+    static boolean g= true;
+    static String h[]= null;
+
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +68,33 @@ public class MainActivity extends AppCompatActivity {
 
 
          teamview = (ListView)findViewById(R.id.teamview);
+        teamview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Adapter adapter = adapterView.getAdapter();
+                JSONObject postDataParam = new JSONObject();
 
+                    a =((Write)adapter.getItem(i)).boardIndex;
+                    b = ((Write)adapter.getItem(i)).boardTitle;
+                    c = ((Write)adapter.getItem(i)).userId;
+                    d = ((Write)adapter.getItem(i)).boardDate;
+                    e = ((Write)adapter.getItem(i)).boardContent;
+                    f = ((Write)adapter.getItem(i)).memberCount;
+                    g = ((Write)adapter.getItem(i)).isRecruiting;
+                    h[0] = ((Write)adapter.getItem(i)).members[0];
+                    h[1] = ((Write)adapter.getItem(i)).members[1];
+                    h[2] = ((Write)adapter.getItem(i)).members[2];
+                    h[3] = ((Write)adapter.getItem(i)).members[3];
+                    h[4] = ((Write)adapter.getItem(i)).members[4];
+                    h[5] = ((Write)adapter.getItem(i)).members[5];
+                    h[6] = ((Write)adapter.getItem(i)).members[6];
+                    h[7] = ((Write)adapter.getItem(i)).members[7];
+                    h[8] = ((Write)adapter.getItem(i)).members[8];
+                    h[9] = ((Write)adapter.getItem(i)).members[9];
+
+
+            }
+        });
     }
 
     private class MyOnClickListener1 implements View.OnClickListener {
