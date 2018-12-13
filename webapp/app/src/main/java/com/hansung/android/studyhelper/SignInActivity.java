@@ -66,6 +66,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
                 new InsertData(SignInActivity.this).execute(postDataParam);
+               // new GetData(SignInActivity.this).execute();
 
                 MainActivity.flag = 2;
                 if(login==3) {

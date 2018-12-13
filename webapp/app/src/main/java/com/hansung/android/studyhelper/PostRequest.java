@@ -53,6 +53,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
             {   System.out.println("eunmi"  +token);
                 conn.setRequestProperty("x-access-token", token);
                 System.out.println("eunmi"  +token);
+               // localstorage.PW = postDataParams[0].get("userPw").toString();
 
             }
             OutputStream os = conn.getOutputStream();
@@ -60,7 +61,7 @@ public class PostRequest extends AsyncTask<JSONObject, Void, String> {
                     new OutputStreamWriter(os, "UTF-8"));
             String str = getPostDataString(postDataParams[0]);
             Log.e("params", "Post String = " + str);
-            localstorage.PW = postDataParams[0].get("userPw").toString();
+
 
             writer.write(str);
 

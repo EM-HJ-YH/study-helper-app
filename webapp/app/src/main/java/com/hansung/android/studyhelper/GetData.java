@@ -24,7 +24,7 @@ import static com.hansung.android.studyhelper.localstorage.ID;
  * Created by kwanwoo on 2017. 10. 17..
  */
 
-public class GetData extends PostRequest {
+public class GetData extends GetRequest {
     public GetData(Activity activity) {
         super(activity);
     }

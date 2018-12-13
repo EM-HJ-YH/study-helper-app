@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class GetRecruiment extends GetRequest {
 
-    static JSONObject teamresult = null;
+
     public GetRecruiment(Activity activity) {
         super(activity);
     }
@@ -50,24 +50,28 @@ public class GetRecruiment extends GetRequest {
 
     protected ArrayList<Write> getArrayListFromJSONString(String jsonString) {
         ArrayList<Write> output = new ArrayList();
+        String teamresult = null;
         try {
             System.out.println("Lee1");
-            JSONArray jsonArray = new JSONArray(jsonString);
+            JSONObject json = new JSONObject(jsonString);
+            teamresult = json.get("result").toString();
+            JSONArray jsonArray = new JSONArray(teamresult);
             System.out.println("Lee1");
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 System.out.println("eunmilee"+i);
-                teamresult = new JSONObject(jsonObject.get("result").toString());
-             //   Write write = new Write(jsonObject.get("result").toString().getString("userId"),
-               //         jsonObject.getString("boardTitle"),
-                 //       jsonObject.getString("boardDate"),
-                   //     jsonObject.getInt("memberCount"));
+                //teamresult = new JSONObject(jsonObject.get("result").toString());
+                Write write = new Write(jsonObject.getString("userId"),
+                        jsonObject.getString("boardTitle"),
+                        jsonObject.getString("boardDate"),
+                         jsonObject.getInt("memberCount"));
 
-                //output.add(write);
+                output.add(write);
 
-                teamresult.get("userId").toString();
-                System.out.println(teamresult.get("team"+"userId").toString());
+
+               // teamresult.get("userId").toString();
+                //System.out.println(teamresult.get("team"+"userId").toString());
             }
 
 
