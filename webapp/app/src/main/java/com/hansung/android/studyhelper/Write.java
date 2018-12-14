@@ -12,9 +12,9 @@ public class Write {
     String boardContent;
     int memberCount;
     boolean isRecruiting;
-    String members[];
+    String members;
 
-    public Write(int boardIndex, String userId, String boardTitle, String boardDate, String boardContent, int memberCount, boolean isRecruiting, String[] members ){
+    public Write(int boardIndex, String userId, String boardTitle, String boardDate, String boardContent, int memberCount, boolean isRecruiting, String members ){
         this.boardIndex=boardIndex;
         this.userId = userId;
         this.boardTitle = boardTitle;

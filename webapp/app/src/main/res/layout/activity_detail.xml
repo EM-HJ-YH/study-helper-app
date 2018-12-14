@@ -6,12 +6,12 @@
     tools:context="com.hansung.android.studyhelper.DetailActivity">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="102dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,10 +31,11 @@
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,16 +49,16 @@
                 android:layout_weight="1"
                 android:text="        등록자 :  "
                 android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/userr"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
 
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -73,14 +74,39 @@
                 android:layout_weight="1"
                 android:text="        정원 :  "
                 android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/countt"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="        등록일:  "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/datee"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,13 +121,13 @@
                 android:text="        내용 :        "
                 android:textSize="15dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/neyoung2"
-                android:layout_width="273dp"
-                android:layout_height="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
 
         </LinearLayout>
 
@@ -118,13 +144,14 @@
                 android:layout_weight="1"
                 android:text="        팀원 :  "
                 android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/mn"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
         </LinearLayout>
 
         <LinearLayout
@@ -140,13 +167,14 @@
                 android:layout_weight="1"
                 android:text="        모집 여부 :  "
                 android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/mojipjung"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:ems="10" />
+                android:ems="10"
+                android:text="" />
         </LinearLayout>
 
         <Button

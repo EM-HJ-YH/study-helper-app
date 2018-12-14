@@ -30,6 +30,10 @@ public class InsertData extends PostRequest {
         else if(MainActivity.flag==4){
             serverURLStr = WriteActivity.defaultUrl.toString();
         }
+        else if(MainActivity.flag==10){
+            serverURLStr = WriteActivity.defaultUrl.toString();
+        }
+
 
 
         try {

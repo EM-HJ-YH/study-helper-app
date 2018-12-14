@@ -69,7 +69,7 @@ public class GetRecruiment extends GetRequest {
                         jsonObject.getString("boardDate"),
                          jsonObject.getInt("memberCount"),
                         jsonObject.getBoolean("isRecruiting"),
-                        jsonObject.getString("members"));
+                        jsonObject.getString("members") );
 
                 output.add(write);
 

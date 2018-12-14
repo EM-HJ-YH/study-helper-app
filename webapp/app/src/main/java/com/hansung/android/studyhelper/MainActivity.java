@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     static String c= null;
     static String d= null;
     static String e= null;
-    static int f= 0;
+    static String f= null;
     static boolean g= true;
-    static String h[]= null;
+    static String h= null;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -72,26 +72,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Adapter adapter = adapterView.getAdapter();
+
                 JSONObject postDataParam = new JSONObject();
 
                     a =((Write)adapter.getItem(i)).boardIndex;
                     b = ((Write)adapter.getItem(i)).boardTitle;
                     c = ((Write)adapter.getItem(i)).userId;
-                    d = ((Write)adapter.getItem(i)).boardDate;
-                    e = ((Write)adapter.getItem(i)).boardContent;
-                    f = ((Write)adapter.getItem(i)).memberCount;
+                    d = ((Write)adapter.getItem(i)).boardContent;
+                    e = ((Write)adapter.getItem(i)).boardDate;
+                    f =  String.valueOf(((Write)adapter.getItem(i)).memberCount);
                     g = ((Write)adapter.getItem(i)).isRecruiting;
-                    h[0] = ((Write)adapter.getItem(i)).members[0];
-                    h[1] = ((Write)adapter.getItem(i)).members[1];
-                    h[2] = ((Write)adapter.getItem(i)).members[2];
-                    h[3] = ((Write)adapter.getItem(i)).members[3];
-                    h[4] = ((Write)adapter.getItem(i)).members[4];
-                    h[5] = ((Write)adapter.getItem(i)).members[5];
-                    h[6] = ((Write)adapter.getItem(i)).members[6];
-                    h[7] = ((Write)adapter.getItem(i)).members[7];
-                    h[8] = ((Write)adapter.getItem(i)).members[8];
-                    h[9] = ((Write)adapter.getItem(i)).members[9];
-
+                    h = ((Write)adapter.getItem(i)).members;
+                    //h[0] = ((Write)adapter.getItem(i)).members[0];
+                    //h[1] = ((Write)adapter.getItem(i)).members[1];
+                    //h[2] = ((Write)adapter.getItem(i)).members[2];
+                    //h[3] = ((Write)adapter.getItem(i)).members[3];
+                    //h[4] = ((Write)adapter.getItem(i)).members[4];
+                    //h[5] = ((Write)adapter.getItem(i)).members[5];
+                    //h[6] = ((Write)adapter.getItem(i)).members[6];
+                    //h[7] = ((Write)adapter.getItem(i)).members[7];
+                    //h[8] = ((Write)adapter.getItem(i)).members[8];
+                    //h[9] = ((Write)adapter.getItem(i)).members[9];
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                startActivity(intent);
 
             }
         });
