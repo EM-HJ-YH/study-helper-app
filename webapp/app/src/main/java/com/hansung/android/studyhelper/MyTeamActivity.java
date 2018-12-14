@@ -60,7 +60,7 @@ public class MyTeamActivity extends AppCompatActivity  {
                 c2 = ((Team)adapter.getItem(i)).groupName;
                 d2 = ((Team)adapter.getItem(i)).members;
 
-                Intent intent = new Intent(getApplicationContext(), TeamBoard.class);
+                Intent intent = new Intent(getApplicationContext(), TeamBoardActivity.class);
                 startActivity(intent);
 
             }
