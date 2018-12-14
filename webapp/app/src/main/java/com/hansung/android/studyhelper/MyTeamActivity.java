@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,14 +17,15 @@ import android.widget.Toast;
 public class MyTeamActivity extends AppCompatActivity  {
 
 
-
+    static  ListView myteamview;
+    final static String defaultUrl = "http://54.180.105.16:80/groups";
 
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myteam);
-
+        new GetTeam(MyTeamActivity.this).execute();
         Button recruitment = (Button) findViewById(R.id.recruitment);
         Button mypage = (Button) findViewById(R.id.mypage);
         Button myteam = (Button) findViewById(R.id.myteam);
@@ -36,7 +38,7 @@ public class MyTeamActivity extends AppCompatActivity  {
         teamcalendar.setOnClickListener(new MyTeamActivity.MyOnClickListener3());
         studycafe.setOnClickListener(new MyTeamActivity.MyOnClickListener3());
 
-
+        myteamview = (ListView)findViewById(R.id.myteamview);
     }
 
 

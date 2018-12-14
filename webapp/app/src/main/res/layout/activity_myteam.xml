@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hansung.android.studyhelper.MyTeamActivity">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="377dp"
         android:layout_height="49dp"
@@ -62,38 +65,35 @@
 
     <LinearLayout
         android:layout_width="369dp"
-        android:layout_height="421dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="82dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="82dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="82dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
-
-                    <EditText
-                        android:id="@+id/a1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="웹앤앱 Team                                                                        "
-                        android:textSize="15dp"/>
+                <ListView
+                    android:id="@+id/myteamview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
+
         </LinearLayout>
-
     </LinearLayout>
-
-
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
