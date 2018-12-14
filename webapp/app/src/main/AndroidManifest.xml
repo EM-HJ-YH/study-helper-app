@@ -40,6 +40,9 @@
             android:label=""></activity>
         <activity android:name=".ReservationActivity"
             android:label=""></activity>
+        <activity android:name=".TeamBoard"
+            android:label=""></activity>
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -29,6 +29,7 @@ import static com.hansung.android.studyhelper.MainActivity.h;
 public class DetailActivity extends AppCompatActivity {
     final static String defaultUrl = "http://54.180.105.16:80/boards";
     String members=localstorage.ID;
+    static String mojip=null;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
@@ -39,9 +40,15 @@ public class DetailActivity extends AppCompatActivity {
         TextView neyoung2 = (TextView) findViewById(R.id.neyoung2);
         TextView mn = (TextView) findViewById(R.id.mn);
         TextView mojipjung = (TextView) findViewById(R.id.mojipjung);
-        String mojip="true";
+        mojip="true";
         if(g==false){
             mojip="false";
+        }
+        Button sub1 = (Button) findViewById(R.id.sub1);
+        String q ="신청 마감";
+        System.out.println("magam" + c + "," + localstorage.ID);
+        if(c.equals(localstorage.ID)){
+            sub1.setText(q);
         }
         jemoc.setText(b);
         userr.setText(c);
@@ -51,22 +58,37 @@ public class DetailActivity extends AppCompatActivity {
         mn.setText(h);
         mojipjung.setText(mojip);
 
-        Button sub1 = (Button) findViewById(R.id.sub1);
-        sub1.setOnClickListener(new DetailActivity.MyOnClickListener());
+
+        if(q.equals("신청 마감")){
+            sub1.setOnClickListener(new DetailActivity.MyOnClickListener22());
+        }
+        else {
+            sub1.setOnClickListener(new DetailActivity.MyOnClickListener());
+        }
+        }
+
+    private class MyOnClickListener22 implements View.OnClickListener {
+        public void onClick(View view) {
+           b="<<마감>>"; //구현해야함
+           mojip = "false";
+        }
     }
 
     private class MyOnClickListener implements View.OnClickListener {
         public void onClick(View view) {
+           // new GetRecruiment().execute();
 
             JSONObject postDataParam2 = new JSONObject();
-            try {
-                postDataParam2.put("members", members);
-                flag=10;
 
-            } catch (JSONException e) {
-               // Log.e(TAG, "JSONEXception");
+            try {
+                postDataParam2.put("boardIndex", MainActivity.a);
+                postDataParam2.put("members", localstorage.ID);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
             }
-            new InsertData(DetailActivity.this).execute(postDataParam2);
+            flag=10;
+
+            new EditData(DetailActivity.this).execute(postDataParam2);
             Toast.makeText(getApplicationContext(),
                     "해당 팀에 신청이 완료되었습니다..",
                     Toast.LENGTH_SHORT).show();

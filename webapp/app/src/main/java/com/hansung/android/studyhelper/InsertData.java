@@ -31,7 +31,7 @@ public class InsertData extends PostRequest {
             serverURLStr = WriteActivity.defaultUrl.toString();
         }
         else if(MainActivity.flag==10){
-            serverURLStr = WriteActivity.defaultUrl.toString();
+            serverURLStr = "http://54.180.105.16:80/boards/addMember/" + MainActivity.a+ "/"+ localstorage.ID;
         }
 
 

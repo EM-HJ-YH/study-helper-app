@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 /**
  * Created by leeem on 2018-11-17.
@@ -19,6 +23,11 @@ public class MyTeamActivity extends AppCompatActivity  {
 
     static  ListView myteamview;
     final static String defaultUrl = "http://54.180.105.16:80/groups";
+
+    static int a2=0;
+    static String b2=null;
+    static String c2 = null;
+    static String d2=null;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -39,6 +48,23 @@ public class MyTeamActivity extends AppCompatActivity  {
         studycafe.setOnClickListener(new MyTeamActivity.MyOnClickListener3());
 
         myteamview = (ListView)findViewById(R.id.myteamview);
+        myteamview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Adapter adapter = adapterView.getAdapter();
+
+                JSONObject postDataParam = new JSONObject();
+
+                a2 =((Team)adapter.getItem(i)).groupIndex;
+                b2 = ((Team)adapter.getItem(i)).groupMasterId;
+                c2 = ((Team)adapter.getItem(i)).groupName;
+                d2 = ((Team)adapter.getItem(i)).members;
+
+                Intent intent = new Intent(getApplicationContext(), TeamBoard.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
 
