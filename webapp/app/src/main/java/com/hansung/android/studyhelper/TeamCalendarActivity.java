@@ -18,6 +18,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -29,7 +32,8 @@ public class TeamCalendarActivity extends AppCompatActivity {
    // int month=0;
    // int day=0;
     String value="";
-
+    String value2="";
+    final static String defaultUrl = "http://54.180.105.16:80/schedules";
 
 
     @SuppressLint("ResourceAsColor")
@@ -67,7 +71,9 @@ public class TeamCalendarActivity extends AppCompatActivity {
                 AlertDialog.Builder ad = new AlertDialog.Builder(TeamCalendarActivity.this);
                 ad.setTitle("Schedule");
                 final EditText et = new EditText(TeamCalendarActivity.this);
+                final EditText groupnames = new EditText(TeamCalendarActivity.this);
                 ad.setView(et);
+                ad.setView(groupnames);
                 ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -81,11 +87,33 @@ public class TeamCalendarActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         value = et.getText().toString();
+                        value2 =  groupnames.getText().toString();
 
                         dialog.dismiss();
 
                         TextView schedule =(TextView) findViewById(R.id.schedule);
+                        TextView groupnames = (TextView)findViewById(R.id.groupnames);
                         schedule.setText(value);
+                        groupnames.setText(value2);
+
+                        JSONObject postDataParam3 = new JSONObject();
+                        try {
+                            postDataParam3.put("groupBoardIndex", 0);
+                            postDataParam3.put("groupIndex", a2);
+                            postDataParam3.put("groupName", c2);
+                            postDataParam3.put("groupBoardTitle", boardtitle.getText().toString());
+                            postDataParam3.put("groupBoardContent",boardcontent.getText().toString()) ;
+                            postDataParam3.put("groupBoardPosterId", localstorage.ID);
+                            postDataParam3.put("groupBoardDate", str_date);
+
+                            MainActivity.flag = 11;
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        new InsertData(TeamCalendarActivity.this).execute(postDataParam3);
+                        //new GetTeamBoard(GroupBoardWriteActivity.this).execute();
+
                     }
                 });
 
