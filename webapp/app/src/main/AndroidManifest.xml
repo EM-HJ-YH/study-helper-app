@@ -42,6 +42,8 @@
             android:label=""></activity>
         <activity android:name=".TeamBoardActivity"
             android:label=""></activity>
+        <activity android:name=".GroupBoardWriteActivity"
+            android:label=""></activity>
 
 
         <meta-data

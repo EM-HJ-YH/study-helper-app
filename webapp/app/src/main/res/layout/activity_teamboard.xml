@@ -10,7 +10,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -31,6 +31,12 @@
                 android:layout_height="wrap_content"
                 android:text="" />
 
+            <Button
+                android:id="@+id/groupwrite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="글 등록" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -38,16 +44,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/teamboardview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ListView
-                    android:id="@+id/teamboardview"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

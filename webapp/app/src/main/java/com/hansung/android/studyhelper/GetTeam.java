@@ -61,7 +61,7 @@ public class GetTeam extends GetRequest {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 System.out.println("eunmilee"+i);
-                    if(jsonObject.getString("members").contains("\""+"test2"+"\"")) {
+                    if(jsonObject.getString("members").contains("\""+localstorage.ID+"\"")) {
                         //teamresult = new JSONObject(jsonObject.get("result").toString());
                         Team team = new Team(jsonObject.getInt("groupIndex"),
                                 jsonObject.getString("groupMasterId"),

@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.hansung.android.studyhelper.MyTeamActivity.a2;
 import static com.hansung.android.studyhelper.MyTeamActivity.c2;
 
 /**
