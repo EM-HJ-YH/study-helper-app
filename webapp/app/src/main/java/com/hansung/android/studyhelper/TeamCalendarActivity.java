@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,10 +19,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import static com.hansung.android.studyhelper.GetTeam.SjsonObject;
+import static com.hansung.android.studyhelper.MyTeamActivity.a2;
 
 /**
  * Created by leeem on 2018-11-17.
@@ -31,8 +36,8 @@ public class TeamCalendarActivity extends AppCompatActivity {
    // int year = 0;
    // int month=0;
    // int day=0;
-    String value="";
-    String value2="";
+    static String value="";
+    static String value2="";
     final static String defaultUrl = "http://54.180.105.16:80/schedules";
 
 
@@ -63,50 +68,62 @@ public class TeamCalendarActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
 
-                int Syear = year;
-                int Smonth = month+1;
-                int Sday = day;
+                final int Syear = year;
+                final int Smonth = month+1;
+                final int Sday = day;
+
 
                 System.out.println("eunmi"+Syear +Smonth + Sday);
-                AlertDialog.Builder ad = new AlertDialog.Builder(TeamCalendarActivity.this);
-                ad.setTitle("Schedule");
-                final EditText et = new EditText(TeamCalendarActivity.this);
-                final EditText groupnames = new EditText(TeamCalendarActivity.this);
-                ad.setView(et);
-                ad.setView(groupnames);
-                ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Log.v(TAG,"No Btn Click");
-                        dialog.dismiss();     //닫기
-                        // Event
-                    }
-                });
-                ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                        value = et.getText().toString();
-                        value2 =  groupnames.getText().toString();
+                AlertDialog.Builder builder = new AlertDialog.Builder(TeamCalendarActivity.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View view = inflater.inflate(R.layout.dialog, null);
+                builder.setView(view);
 
+                final Button submit = (Button) view.findViewById(R.id.buttonSubmit);
+                final AlertDialog dialog = builder.create();
+
+                submit.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        final EditText et2 = (EditText) findViewById(R.id.et2);
+                        final EditText groupnames2 = (EditText) findViewById(R.id.groupnames2);
+                        //System.out.println("lal" +groupnames2.getText().toString());
+                        value2 =  groupnames2.getText().toString();
+                        value = et2.getText().toString();
+                        //value2 =  groupnames2.getText().toString();
+                        int gindex=0;
                         dialog.dismiss();
 
                         TextView schedule =(TextView) findViewById(R.id.schedule);
                         TextView groupnames = (TextView)findViewById(R.id.groupnames);
                         schedule.setText(value);
                         groupnames.setText(value2);
+                        try {
+                            if(SjsonObject.getString("members").contains("\""+localstorage.ID+"\"")) {
+
+                                if(SjsonObject.getString("groupName").equals(value2)){
+                                    gindex = SjsonObject.getInt("groupIndex");
+                                }
+
+                            }
+
+
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
 
                         JSONObject postDataParam3 = new JSONObject();
                         try {
-                            postDataParam3.put("groupBoardIndex", 0);
-                            postDataParam3.put("groupIndex", a2);
-                            postDataParam3.put("groupName", c2);
-                            postDataParam3.put("groupBoardTitle", boardtitle.getText().toString());
-                            postDataParam3.put("groupBoardContent",boardcontent.getText().toString()) ;
-                            postDataParam3.put("groupBoardPosterId", localstorage.ID);
-                            postDataParam3.put("groupBoardDate", str_date);
+                            postDataParam3.put("scheduleIndex", 0);
+                            postDataParam3.put("scheduleYear", String.valueOf(Syear));
+                            postDataParam3.put("scheduleMonth",String.valueOf(Smonth));
+                            postDataParam3.put("scheduleDay", String.valueOf(Sday));
+                            postDataParam3.put("groupBoardContent",value) ;
+                            postDataParam3.put("groupIndex", gindex);
+                            postDataParam3.put("groupName", value2);
+                            postDataParam3.put("posterId", localstorage.ID);
 
-                            MainActivity.flag = 11;
+                            MainActivity.flag = 13;
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -117,10 +134,7 @@ public class TeamCalendarActivity extends AppCompatActivity {
                     }
                 });
 
-                ad.show();
-
-
-
+                dialog.show();
             }
         });
     }

@@ -37,6 +37,10 @@ public class InsertData extends PostRequest {
             serverURLStr = TeamBoardActivity.defaultUrl.toString();
         }
 
+        else if(MainActivity.flag==13){
+            serverURLStr = TeamCalendarActivity.defaultUrl.toString();
+        }
+
 
 
         try {

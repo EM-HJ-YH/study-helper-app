@@ -12,6 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.hansung.android.studyhelper.TeamCalendarActivity.value2;
+
 /**
  * Created by leeem on 2018-12-14.
  */
@@ -22,6 +24,7 @@ public class GetTeam extends GetRequest {
         super(activity);
     }
 
+    static JSONObject SjsonObject;
     @Override
     protected void onPreExecute() {
 
@@ -59,14 +62,15 @@ public class GetTeam extends GetRequest {
             System.out.println("Lee1");
             for (int i = 0; i < jsonArray.length(); i++) {
 
-                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                SjsonObject = (JSONObject) jsonArray.get(i);
                 System.out.println("eunmilee"+i);
-                    if(jsonObject.getString("members").contains("\""+localstorage.ID+"\"")) {
+                    if(SjsonObject.getString("members").contains("\""+localstorage.ID+"\"")) {
                         //teamresult = new JSONObject(jsonObject.get("result").toString());
-                        Team team = new Team(jsonObject.getInt("groupIndex"),
-                                jsonObject.getString("groupMasterId"),
-                                jsonObject.getString("groupName"),
-                                jsonObject.getString("members"));
+                        Team team = new Team(SjsonObject.getInt("groupIndex"),
+                                SjsonObject.getString("groupMasterId"),
+                                SjsonObject.getString("groupName"),
+                                SjsonObject.getString("members"));
+
 
                         output.add(team);
                     }
