@@ -30,10 +30,11 @@ public class DetailActivity extends AppCompatActivity {
     final static String defaultUrl = "http://54.180.105.16:80/boards";
     String members=localstorage.ID;
     static String mojip=null;
+    static TextView jemoc;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        TextView jemoc = (TextView) findViewById(R.id.jemoc);
+        jemoc = (TextView) findViewById(R.id.jemoc);
         TextView userr = (TextView) findViewById(R.id.userr);
         TextView countt = (TextView) findViewById(R.id.countt);
         TextView datee = (TextView)findViewById(R.id.datee);
@@ -69,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private class MyOnClickListener22 implements View.OnClickListener {
         public void onClick(View view) {
-
+            //jemoc.setText("<<마감>>");
             Intent intent11112 = new Intent(getApplicationContext(), MagamActivity.class);
             startActivity(intent11112);
         }

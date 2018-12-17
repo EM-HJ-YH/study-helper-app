@@ -48,6 +48,9 @@ public class InsertData extends PostRequest {
             serverURLStr = ReservationActivity.defaultUrl.toString();
         }
 
+        else if(MainActivity.flag==24){
+            serverURLStr = MagamActivity.defaultUrl.toString();
+        }
 
 
         try {

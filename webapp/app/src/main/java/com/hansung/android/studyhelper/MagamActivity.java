@@ -40,7 +40,7 @@ public class MagamActivity extends AppCompatActivity {
                 postDataParam2.put("groupMasterId", localstorage.ID);
                 postDataParam2.put("groupName",grname2.getText().toString()) ;
                 postDataParam2.put("members", h);
-                MainActivity.flag = 9;
+                MainActivity.flag = 24;
 
             } catch (JSONException e) {
                // Log.e(TAG, "JSONEXception");

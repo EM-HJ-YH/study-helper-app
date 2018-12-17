@@ -69,7 +69,7 @@ public class GetTeam extends GetRequest {
                 if(SjsonObject.toString() != null) {
                     System.out.println("che" + SjsonObject);
                     System.out.println("eunmilee" + i);
-                    if (SjsonObject.getString("members").contains("\"" + localstorage.ID + "\"")) {
+                    if (SjsonObject.getString("members").contains("\"" + localstorage.ID + "\"") ||SjsonObject.getString("groupMasterId").equals(localstorage.ID) ) {
                         //teamresult = new JSONObject(jsonObject.get("result").toString());
                         Team team = new Team(SjsonObject.getInt("groupIndex"),
                                 SjsonObject.getString("groupMasterId"),
