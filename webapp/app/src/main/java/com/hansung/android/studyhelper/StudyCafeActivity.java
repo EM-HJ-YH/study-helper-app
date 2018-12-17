@@ -74,19 +74,19 @@ public class StudyCafeActivity extends AppCompatActivity implements OnMapReadyCa
         mGoogleMap = googleMap;
         //makerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
-            LatLng sc1 = new LatLng(37.586663, 127.013624);
-            googleMap.addMarker(
-                    new MarkerOptions().
-                            position(sc1).
-                            icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).
-                            title("study cafe1"));
-
-        LatLng sc2 = new LatLng(37.582852, 127.011716);
-        googleMap.addMarker(
-                new MarkerOptions().
-                        position(sc2).
-                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).
-                        title("study cafe1"));
+//            LatLng sc1 = new LatLng(37.586663, 127.013624);
+//            googleMap.addMarker(
+//                    new MarkerOptions().
+//                            position(sc1).
+//                            icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).
+//                            title("study cafe1"));
+//
+//        LatLng sc2 = new LatLng(37.582852, 127.011716);
+//        googleMap.addMarker(
+//                new MarkerOptions().
+//                        position(sc2).
+//                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).
+//                        title("study cafe1"));
 
 
         LatLng hansung = new LatLng(37.5817891, 127.009854);

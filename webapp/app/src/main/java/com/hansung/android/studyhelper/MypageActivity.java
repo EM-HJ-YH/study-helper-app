@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.hansung.android.studyhelper.GetData.admissionyear;
+import static com.hansung.android.studyhelper.MainActivity.flag;
 import static com.hansung.android.studyhelper.localstorage.ID;
 import static com.hansung.android.studyhelper.localstorage.Name;
 import static com.hansung.android.studyhelper.localstorage.Major;
@@ -51,17 +52,18 @@ public class MypageActivity extends AppCompatActivity {
         studycafe.setOnClickListener(new MyOnClickListener3());
 
         Button editinfo = (Button) findViewById(R.id.editinfo);
+        Button deleteinfo = (Button) findViewById(R.id.deleteinfo);
 
         editinfo.setOnClickListener(new MyOnClickListener44());
+        deleteinfo.setOnClickListener(new MyOnClickListener45());
        TextView idview = (TextView) findViewById(R.id.idview);
         TextView nameview = (TextView) findViewById(R.id.nameview);
-        TextView pwview = (TextView) findViewById(R.id.pwview);
+        //TextView pwview = (TextView) findViewById(R.id.pwview);
         TextView majorview = (TextView) findViewById(R.id.majorview);
         TextView adview = (TextView) findViewById(R.id.adview);
 
         idview.setText("ID : " + localstorage.ID);
         nameview.setText("이름 : " + localstorage.Name);
-        pwview.setText("비밀번호 : " +localstorage.PW);
         majorview.setText("전공 : "+localstorage.Major);
         adview.setText("학년 : "+localstorage.AdmissionYear);
     }
@@ -69,9 +71,32 @@ public class MypageActivity extends AppCompatActivity {
     private class MyOnClickListener44 implements View.OnClickListener {
 
         public void onClick(View view) {
-
+            Intent intent1112 = new Intent(getApplicationContext(), EditInfoActivity.class);
+            startActivity(intent1112);
         }
     }
+
+    private class MyOnClickListener45 implements View.OnClickListener {
+
+        public void onClick(View view) {
+            JSONObject postDataParam2 = new JSONObject();
+
+            try {
+                postDataParam2.put("userId", localstorage.ID);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+            flag=16;
+
+            new EditData(MypageActivity.this).execute(postDataParam2);
+            Toast.makeText(getApplicationContext(),
+                    "회원 탈퇴가 완료되었습니다..",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent11111 = new Intent(getApplicationContext(), SignInActivity.class);
+            startActivity(intent11111);
+        }
+    }
+
 
 
 

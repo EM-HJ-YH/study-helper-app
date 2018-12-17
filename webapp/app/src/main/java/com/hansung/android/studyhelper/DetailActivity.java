@@ -69,8 +69,9 @@ public class DetailActivity extends AppCompatActivity {
 
     private class MyOnClickListener22 implements View.OnClickListener {
         public void onClick(View view) {
-           b="<<마감>>"; //구현해야함
-           mojip = "false";
+
+            Intent intent11112 = new Intent(getApplicationContext(), MagamActivity.class);
+            startActivity(intent11112);
         }
     }
 
@@ -92,6 +93,8 @@ public class DetailActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),
                     "해당 팀에 신청이 완료되었습니다..",
                     Toast.LENGTH_SHORT).show();
+            Intent intent11111 = new Intent(getApplicationContext(), DetailActivity.class);
+            startActivity(intent11111);
 
         }
     }
