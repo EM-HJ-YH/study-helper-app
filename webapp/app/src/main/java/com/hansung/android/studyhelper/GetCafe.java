@@ -67,7 +67,7 @@ public class GetCafe extends GetRequest {
             JSONArray jsonArray = new JSONArray(Cafe);
             System.out.println("Lee1");
             for (int i = 0; i < jsonArray.length(); i++) {
-                    len = jsonArray.length();
+                   // len = jsonArray.length();
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 cafeinfo = jsonObject.toString();
                 System.out.println("eunmilee"+jsonObject);
