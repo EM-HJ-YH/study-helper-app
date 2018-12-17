@@ -54,10 +54,13 @@ public class MypageActivity extends AppCompatActivity {
         Button editinfo = (Button) findViewById(R.id.editinfo);
         Button deleteinfo = (Button) findViewById(R.id.deleteinfo);
         Button checkres = (Button) findViewById(R.id.checkres);
+        Button logout = (Button)findViewById(R.id.logout);
 
         editinfo.setOnClickListener(new MyOnClickListener44());
         deleteinfo.setOnClickListener(new MyOnClickListener45());
         checkres.setOnClickListener(new MyOnClickListener46());
+        logout.setOnClickListener(new MyOnClickListener47());
+
        TextView idview = (TextView) findViewById(R.id.idview);
         TextView nameview = (TextView) findViewById(R.id.nameview);
         //TextView pwview = (TextView) findViewById(R.id.pwview);
@@ -106,6 +109,14 @@ public class MypageActivity extends AppCompatActivity {
             startActivity(intent55);
         }
     }
+    private class MyOnClickListener47 implements View.OnClickListener {
+
+        public void onClick(View view) {
+            localstorage.token=null;
+            Intent intent55 = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent55);
+        }
+    }
 
 
 
@@ -115,25 +126,30 @@ public class MypageActivity extends AppCompatActivity {
         public void onClick(View view) {
 
 
-            if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
+            if(view.getId()==R.id.recruitment){
+                if(localstorage.token!=null){//클릭한 버튼의 아이디가 R.id.bt_red일때
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
             }if(view.getId()==R.id.mypage){
                 //new GetData(MypageActivity.this).execute();
+                if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
 
             }if(view.getId()==R.id.myteam){
+                if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
 
             }if(view.getId()==R.id.teamcalendar){
+                if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
 
             }if(view.getId()==R.id.studycafe) {
+                if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), StudyCafeActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
             }
 
 

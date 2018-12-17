@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.hansung.android.studyhelper.localstorage.token;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tosignup = (TextView) findViewById(R.id.tosignup);
         tosignup.setOnClickListener(new MyOnClickListener2());
 
-        if(login>=3){
+        if(token!=null){
             tosignin.setVisibility(View.INVISIBLE);
             tosignup.setVisibility(View.INVISIBLE);
 
@@ -129,25 +130,46 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("ResourceAsColor")
         public void onClick(View view) {
             System.out.print(view.getId());
-            if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
+            if(view.getId()==R.id.recruitment){
+                if(token!=null){//클릭한 버튼의 아이디가 R.id.bt_red일때
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
+                Toast.makeText(getApplicationContext(),
+                        "로그인 해주세요.",
+                        Toast.LENGTH_SHORT).show();
             }if(view.getId()==R.id.mypage){
+                if(token!=null){
                 //new GetData(MainActivity.this).execute();
                 Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
+                Toast.makeText(getApplicationContext(),
+                        "로그인 해주세요.",
+                        Toast.LENGTH_SHORT).show();
 
             }if(view.getId()==R.id.myteam){
-                Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
-                startActivity(intent);
+                if(token!=null){
+                    Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
+                    startActivity(intent);}
+                Toast.makeText(getApplicationContext(),
+                        "로그인 해주세요.",
+                        Toast.LENGTH_SHORT).show();
 
             }if(view.getId()==R.id.teamcalendar){
+            if(token!=null) {
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
+                Toast.makeText(getApplicationContext(),
+                        "로그인 해주세요.",
+                        Toast.LENGTH_SHORT).show();
+
 
             }if(view.getId()==R.id.studycafe) {
+                if(token!=null){
                 Intent intent = new Intent(getApplicationContext(), StudyCafeActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
+                Toast.makeText(getApplicationContext(),
+                        "로그인 해주세요.",
+                        Toast.LENGTH_SHORT).show();
             }
 
 

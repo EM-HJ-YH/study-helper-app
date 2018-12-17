@@ -22,6 +22,6 @@ public class Cafe {
     }
 
     public String toString() {
-        return String.format("cafeIndex = %d \n latitude = %d \n longitude = %d \n cafeName = %s \n cafePhone = %s",cafeIndex, latitude,longitude,cafeName, cafePhone);
+        return String.format("cafeIndex : %d \n latitude : %d \n longitude : %d \n cafeName : %s \n cafePhone : %s",cafeIndex, latitude,longitude,cafeName, cafePhone);
     }
 }

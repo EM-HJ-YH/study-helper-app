@@ -19,6 +19,6 @@ public class Team {
     }
 
     public String toString() {
-        return String.format("groupIndex = %d \n groupMasterId = %s \n groupName = %s \n members = %s",groupIndex, groupMasterId,groupName,members);
+        return String.format("groupIndex : %d \n groupMasterId : %s \n groupName : %s \n members : %s",groupIndex, groupMasterId,groupName,members);
     }
 }

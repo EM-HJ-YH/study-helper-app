@@ -106,7 +106,11 @@
                 android:text="내 정보"
                 android:textSize="20dp" />
 
-
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="로그아웃" />
             <Button
                 android:id="@+id/editinfo"
                 android:layout_width="match_parent"

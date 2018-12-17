@@ -24,7 +24,7 @@ public class rescheck {
     }
 
     public String toString() {
-        return String.format("cafeBookIndex = %d \n cafeIndex = %d \n cafeBookUserId = %s \n cafeBookDate = %s \n cafeBookBeginTime = %s \n cafeBookEndTime = %s",
+        return String.format("cafeBookIndex : %d \n cafeIndex : %d \n cafeBookUserId : %s \n cafeBookDate : %s \n cafeBookBeginTime : %s \n cafeBookEndTime : %s",
                 cafeBookIndex,cafeIndex, cafeBookUserId,cafeBookDate,cafeBookBeginTime, cafeBookEndTime);
     }
 }

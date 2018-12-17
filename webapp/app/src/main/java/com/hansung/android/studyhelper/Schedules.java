@@ -30,8 +30,8 @@ public class Schedules {
     }
 
     public String toString() {
-        return String.format("scheduleIndex = %d \n scheduleYear = %s \n scheduleMonth = %s \n scheduleDay = %s \n " +
-                        "scheduleContent = %s \n groupIndex = %d \n groupName = %s \n posterId = %s",scheduleIndex,scheduleYear,scheduleMonth,scheduleDay,
+        return String.format("scheduleIndex : %d \n scheduleYear : %s \n scheduleMonth : %s \n scheduleDay : %s \n " +
+                        "scheduleContent : %s \n groupIndex : %d \n groupName : %s \n posterId : %s",scheduleIndex,scheduleYear,scheduleMonth,scheduleDay,
                 scheduleContent , groupIndex, groupName, posterId  );
     }
 }

@@ -27,8 +27,8 @@ public class TeamBoard {
     }
 
     public String toString() {
-        return String.format("groupBoardIndex = %d \n groupIndex = %d \n groupName = %s \n groupBoardTitle = %s \n groupBoardContent = %s \n " +
-                "groupBoardPosterId = %s \n groupBoardDate = %s",groupBoardIndex,groupIndex,groupName,groupBoardTitle,groupBoardContent,
+        return String.format("groupBoardIndex : %d \n groupIndex : %d \n groupName : %s \n groupBoardTitle : %s \n groupBoardContent : %s \n " +
+                "groupBoardPosterId : %s \n groupBoardDate : %s",groupBoardIndex,groupIndex,groupName,groupBoardTitle,groupBoardContent,
                 groupBoardPosterId , groupBoardDate  );
     }
 }

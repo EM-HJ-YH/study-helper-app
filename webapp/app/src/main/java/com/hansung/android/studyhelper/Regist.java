@@ -21,6 +21,6 @@ public class Regist {
     }
 
     public String toString() {
-        return String.format("userName = %s \n userId = %s \n userPw = %s \n major = %s \n admissionYear = %d",userName, userId,userPw,major,admissionYear);
+        return String.format("userName : %s \n userId : %s \n userPw : %s \n major : %s \n admissionYear : %d",userName, userId,userPw,major,admissionYear);
     }
 }

@@ -71,23 +71,25 @@ public class MyTeamActivity extends AppCompatActivity  {
     private class MyOnClickListener3 implements View.OnClickListener {
         @SuppressLint("ResourceAsColor")
         public void onClick(View view) {
-            if(view.getId()==R.id.recruitment){  //클릭한 버튼의 아이디가 R.id.bt_red일때
+            if(view.getId()==R.id.recruitment){
+                if(localstorage.token!=null){//클릭한 버튼의 아이디가 R.id.bt_red일때
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
             }if(view.getId()==R.id.mypage){
+                if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
 
-            }if(view.getId()==R.id.myteam){
+            }if(view.getId()==R.id.myteam){if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), MyTeamActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
 
-            }if(view.getId()==R.id.teamcalendar){
+            }if(view.getId()==R.id.teamcalendar){if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), TeamCalendarActivity.class);
-                startActivity(intent);
-            }if(view.getId()==R.id.studycafe) {
+                startActivity(intent);}
+            }if(view.getId()==R.id.studycafe) {if(localstorage.token!=null){
                 Intent intent = new Intent(getApplicationContext(), StudyCafeActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
             }
 
 

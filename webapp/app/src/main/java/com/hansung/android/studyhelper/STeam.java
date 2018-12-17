@@ -20,6 +20,6 @@ public class STeam {
     }
 
     public String toString() {
-        return String.format("groupIndex = %d \n groupName = %s ",groupIndex,groupName);
+        return String.format("groupIndex : %d \n groupName : %s ",groupIndex,groupName);
     }
 }

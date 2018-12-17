@@ -14,7 +14,7 @@ public class Write {
     boolean isRecruiting;
     String members;
 
-    public Write(int boardIndex, String userId, String boardTitle, String boardDate, String boardContent, int memberCount, boolean isRecruiting, String members ){
+    public Write(int boardIndex, String userId, String boardTitle, String boardContent, String boardDate, int memberCount, boolean isRecruiting, String members ){
         this.boardIndex=boardIndex;
         this.userId = userId;
         this.boardTitle = boardTitle;
@@ -26,6 +26,6 @@ public class Write {
     }
 
     public String toString() {
-        return String.format("boardIndex = %d \n userId = %s \n boardTitle = %s \n boardDate = %s \n memberCount = %d",boardIndex, userId,boardTitle,boardDate,memberCount);
+        return String.format("boardIndex : %d \n userId : %s \n boardTitle : %s \n boardContent : %s \n boardDate : %s \n memberCount : %d",boardIndex, userId,boardTitle,boardContent,boardDate,memberCount);
     }
 }
