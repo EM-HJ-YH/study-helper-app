@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 public class MainActivity extends AppCompatActivity {
 
      static int flag = 0;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new GetRecruiment(MainActivity.this).execute();
+
         setContentView(R.layout.activity_main);
         TextView tosignin = (TextView) findViewById(R.id.tosignin);
         tosignin.setOnClickListener(new MyOnClickListener1());

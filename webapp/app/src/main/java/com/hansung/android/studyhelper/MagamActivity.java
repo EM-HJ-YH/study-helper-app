@@ -1,5 +1,6 @@
 package com.hansung.android.studyhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,9 +24,6 @@ public class MagamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_magam);
 
-
-
-
         Button insertBtn2 = (Button) findViewById(R.id.sub3);
         insertBtn2.setOnClickListener(new MyOnClickListener122());
 
@@ -35,7 +33,7 @@ public class MagamActivity extends AppCompatActivity {
 
         public void onClick(View view) {
             EditText grname2 = (EditText) findViewById(R.id.grname2);
-
+            System.out.println(h);
             JSONObject postDataParam2 = new JSONObject();
             try {
                 postDataParam2.put("groupIndex", 0);
@@ -48,7 +46,9 @@ public class MagamActivity extends AppCompatActivity {
                // Log.e(TAG, "JSONEXception");
             }
             new InsertData(MagamActivity.this).execute(postDataParam2);
+            Intent intent111 = new Intent(getApplicationContext(), MyTeamActivity.class);
+            startActivity(intent111);
         }
-        }
+    }
 
 }

@@ -53,9 +53,11 @@ public class MypageActivity extends AppCompatActivity {
 
         Button editinfo = (Button) findViewById(R.id.editinfo);
         Button deleteinfo = (Button) findViewById(R.id.deleteinfo);
+        Button checkres = (Button) findViewById(R.id.checkres);
 
         editinfo.setOnClickListener(new MyOnClickListener44());
         deleteinfo.setOnClickListener(new MyOnClickListener45());
+        checkres.setOnClickListener(new MyOnClickListener46());
        TextView idview = (TextView) findViewById(R.id.idview);
         TextView nameview = (TextView) findViewById(R.id.nameview);
         //TextView pwview = (TextView) findViewById(R.id.pwview);
@@ -94,6 +96,14 @@ public class MypageActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             Intent intent11111 = new Intent(getApplicationContext(), SignInActivity.class);
             startActivity(intent11111);
+        }
+    }
+
+    private class MyOnClickListener46 implements View.OnClickListener {
+
+        public void onClick(View view) {
+            Intent intent55 = new Intent(getApplicationContext(), ResCheckActivity.class);
+            startActivity(intent55);
         }
     }
 

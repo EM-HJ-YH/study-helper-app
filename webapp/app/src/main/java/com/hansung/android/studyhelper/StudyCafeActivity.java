@@ -34,6 +34,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import static com.hansung.android.studyhelper.GetCafe.cafenames;
+
 /**
  * Created by leeem on 2018-12-08.
  */
@@ -42,12 +44,21 @@ public class StudyCafeActivity extends AppCompatActivity implements OnMapReadyCa
     GoogleMap mGoogleMap = null;
     final static String defaultUrl = "http://54.180.105.16:80/cafes";
 
+    static double lat;
+    static double lon;
+    static String na;
+    static String ph;
+    static String markername;
+
+    static GoogleMap googleMap2;
+    static LatLng sc1;
+
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studycafe);
-
+        new GetCafe(StudyCafeActivity.this).execute();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -72,8 +83,9 @@ public class StudyCafeActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        //makerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-
+        googleMap2 = googleMap;
+//        //makerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+//
 //            LatLng sc1 = new LatLng(37.586663, 127.013624);
 //            googleMap.addMarker(
 //                    new MarkerOptions().
@@ -107,12 +119,14 @@ public class StudyCafeActivity extends AppCompatActivity implements OnMapReadyCa
 
         @Override
         public boolean onMarkerClick(Marker marker) {
+            markername = marker.getTitle();
             if (marker.getTitle().equals("현재 위치")) {
                 Toast.makeText(getApplicationContext(),"현재 위치 입니다.", Toast.LENGTH_SHORT).show();
             }
 
-            else if(marker.getTitle().equals("study cafe1")){
-                Toast.makeText(getApplicationContext(),"Study Cafe1에 예약합니다.", Toast.LENGTH_SHORT).show();
+
+            else if(cafenames.contains(markername)){
+                Toast.makeText(getApplicationContext(),markername +"에 예약합니다.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
                 startActivity(intent);
 

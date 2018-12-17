@@ -44,6 +44,9 @@ public class InsertData extends PostRequest {
         else if(MainActivity.flag==13){
             serverURLStr = TeamCalendarActivity.defaultUrl.toString();
         }
+        else if(MainActivity.flag==32){
+            serverURLStr = ReservationActivity.defaultUrl.toString();
+        }
 
 
 
