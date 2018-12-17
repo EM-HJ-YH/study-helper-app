@@ -1,5 +1,6 @@
 package com.hansung.android.studyhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,14 +28,15 @@ public class EditInfoActivity extends AppCompatActivity {
 
         Button  editBtn2 = (Button) findViewById(R.id.sub21);
         editBtn2.setOnClickListener(new MyOnClickListener111());
-
+        TextView useridd = (TextView) findViewById(R.id.useridd);
+        useridd.setText(localstorage.ID);
     }
 
     private class MyOnClickListener111 implements View.OnClickListener {
 
         public void onClick(View view) {
 
-            TextView useridd = (TextView) findViewById(R.id.useridd);
+
             final RadioGroup rgp1 = (RadioGroup)findViewById(R.id.radioGroup1);
             RadioButton rm1 = (RadioButton) findViewById(R.id.radiomajor1);
             RadioButton rm2 = (RadioButton) findViewById(R.id.radiomajor2);
@@ -51,21 +53,22 @@ public class EditInfoActivity extends AppCompatActivity {
             int id2 = rgp2.getCheckedRadioButtonId();
             RadioButton rb2 = (RadioButton) findViewById(id2);
 
-            useridd.setText(localstorage.ID);
-            q= rb.getText().toString();
-            w=Integer.parseInt(rb2.getText().toString());
+
+            localstorage.Major= rb.getText().toString();
+            localstorage.AdmissionYear=rb2.getText().toString();
 
             JSONObject postDataParam = new JSONObject();
             try {
                 postDataParam.put("userId", localstorage.ID);
-                postDataParam.put("major", rb.getText().toString());
-                postDataParam.put("admissionYear", Integer.parseInt(rb2.getText().toString()));
+                postDataParam.put("major", localstorage.Major);
+                postDataParam.put("admissionYear", Integer.parseInt(localstorage.AdmissionYear));
             } catch (JSONException e) {
                 //Log.e(TAG, "JSONEXception");
             }
             MainActivity.flag = 18;
             new EditData(EditInfoActivity.this).execute(postDataParam);
-
+            Intent intent31 = new Intent(getApplicationContext(), MypageActivity.class);
+            startActivity(intent31);
 
         }
         }

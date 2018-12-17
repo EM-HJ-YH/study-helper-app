@@ -25,11 +25,11 @@ public class EditData extends PutRequest {
             serverURLStr = "http://54.180.105.16:80/boards/addMember/" + MainActivity.a+ "/"+ localstorage.ID;
         }
         else if(MainActivity.flag==18){
-            serverURLStr = "http://54.180.105.16:80/boards/updateUser/" + localstorage.ID + "/"+ q + "/" + w;
+            serverURLStr = "http://54.180.105.16:80/users/updateUser/" + localstorage.ID + "/"+ localstorage.Major + "/" + localstorage.AdmissionYear;
         }
 
         else if(MainActivity.flag==16){
-            serverURLStr = "http://54.180.105.16:80/boards/deleteUser/" + localstorage.ID;
+            serverURLStr = "http://54.180.105.16:80/users/deleteUser/" + localstorage.ID;
         }
 
 

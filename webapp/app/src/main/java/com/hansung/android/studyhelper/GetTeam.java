@@ -23,8 +23,10 @@ public class GetTeam extends GetRequest {
     public GetTeam(Activity activity) {
         super(activity);
     }
+    static String myteamarray=null;
+    static String teamarray;
 
-    static JSONObject SjsonObject;
+    static String json = null;
     @Override
     protected void onPreExecute() {
 
@@ -58,25 +60,36 @@ public class GetTeam extends GetRequest {
             System.out.println("Lee1");
             JSONObject json = new JSONObject(jsonString);
             team = json.get("result").toString();
+            System.out.println("che" + team);
             JSONArray jsonArray = new JSONArray(team);
             System.out.println("Lee1");
             for (int i = 0; i < jsonArray.length(); i++) {
 
-                SjsonObject = (JSONObject) jsonArray.get(i);
-                System.out.println("eunmilee"+i);
-                    if(SjsonObject.getString("members").contains("\""+localstorage.ID+"\"")) {
+                JSONObject SjsonObject = (JSONObject) jsonArray.get(i);
+                if(SjsonObject.toString() != null) {
+                    System.out.println("che" + SjsonObject);
+                    System.out.println("eunmilee" + i);
+                    if (SjsonObject.getString("members").contains("\"" + localstorage.ID + "\"")) {
                         //teamresult = new JSONObject(jsonObject.get("result").toString());
                         Team team = new Team(SjsonObject.getInt("groupIndex"),
                                 SjsonObject.getString("groupMasterId"),
                                 SjsonObject.getString("groupName"),
                                 SjsonObject.getString("members"));
+                        System.out.println(SjsonObject.getString("groupName"));
 
+                            if(SjsonObject.getString("groupName").equals(value2)) {
+                                TeamCalendarActivity.gindex = SjsonObject.getInt("groupIndex");
+                            }
 
+                        myteamarray = SjsonObject.getString("groupName");
+                        teamarray = teamarray + myteamarray;
+                        System.out.println("che" + myteamarray);
                         output.add(team);
                     }
-
+                }
 
             }
+
 
 
         } catch (JSONException e1) {

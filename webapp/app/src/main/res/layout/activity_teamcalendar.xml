@@ -62,20 +62,20 @@
 
     <LinearLayout
         android:layout_width="369dp"
-        android:layout_height="421dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="82dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="82dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -89,19 +89,32 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="일정"/>
+                    android:text=" 속한 그룹의 모든 일정" />
 
                 <TextView
                     android:id="@+id/groupnames"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"/>
+                    android:ems="10" />
+
                 <TextView
                     android:id="@+id/schedule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textMultiLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:id="@+id/schedulelist"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

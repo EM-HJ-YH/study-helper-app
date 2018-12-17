@@ -46,6 +46,8 @@
             android:label=""></activity>
         <activity android:name=".MagamActivity"
             android:label=""></activity>
+        <activity android:name=".EditInfoActivity"
+            android:label=""></activity>
 
 
         <meta-data

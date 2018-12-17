@@ -40,7 +40,7 @@ import java.util.Locale;
 
 public class StudyCafeActivity extends AppCompatActivity implements OnMapReadyCallback {
     GoogleMap mGoogleMap = null;
-
+    final static String defaultUrl = "http://54.180.105.16:80/cafes";
 
     @SuppressLint("ResourceAsColor")
     @Override
